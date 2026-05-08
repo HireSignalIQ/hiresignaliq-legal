@@ -25,7 +25,6 @@
     height: auto !important;
   }
 
-  /* NAV */
   .os-nav {
     position: fixed;
     top: 0; left: 0;
@@ -81,15 +80,6 @@
 
   .os-nav-link:hover { color: #fff; }
 
-  .os-nav-cta {
-    background: #1a9e8f; color: #fff;
-    font-size: 14px; font-weight: 500;
-    padding: 9px 20px; border-radius: 8px;
-    text-decoration: none; transition: background 0.2s;
-  }
-
-  .os-nav-cta:hover { background: #158a7c; }
-
   .os-nav-hamburger {
     display: none; flex-direction: column; gap: 5px;
     cursor: pointer; background: none; border: none; padding: 4px;
@@ -118,14 +108,7 @@
     text-decoration: none; font-weight: 400; padding: 6px 0;
   }
 
-  .os-mobile-menu .os-nav-cta {
-    text-align: center; padding: 12px 20px; color: #fff;
-  }
-
-  /* PAGE CONTENT */
-  .os-page {
-    padding-top: 64px;
-  }
+  .os-page { padding-top: 64px; }
 
   .os-container {
     max-width: 800px;
@@ -206,20 +189,50 @@
     font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.5;
   }
 
+  /* PHILOSOPHY CARDS — matching differentiators style */
+  .os-philosophy-section {
+    background: #f7f7f5;
+    border-radius: 16px;
+    padding: 40px;
+    margin-top: 32px;
+  }
+
   .os-philosophy-grid {
     display: grid; grid-template-columns: 1fr 1fr;
-    gap: 16px; margin-top: 32px;
+    gap: 20px;
   }
 
   .os-phil-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 10px; padding: 20px 22px;
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 12px;
+    padding: 28px 24px;
+    transition: box-shadow 0.2s, transform 0.2s;
   }
 
-  .os-phil-icon { font-size: 20px; margin-bottom: 10px; display: block; }
-  .os-phil-title { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 6px; }
-  .os-phil-text { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.65; }
+  .os-phil-card:hover {
+    box-shadow: 0 12px 40px rgba(26,42,42,0.14);
+    transform: translateY(-6px);
+  }
+
+  .os-phil-icon {
+    width: 44px; height: 44px;
+    background: #f0faf9;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px; font-size: 20px;
+  }
+
+  .os-phil-title {
+    font-size: 15px; font-weight: 600; color: #1a2a2a;
+    margin-bottom: 8px; line-height: 1.3; letter-spacing: -0.01em;
+  }
+
+  .os-phil-text {
+    font-size: 13px; color: #666666; line-height: 1.65;
+  }
+
+  .os-phil-text strong { color: #1a2a2a; font-weight: 500; }
 
   /* TABS */
   .os-tabs-wrap { margin-top: 40px; }
@@ -246,7 +259,6 @@
   .os-tab-panel { display: none; }
   .os-tab-panel.active { display: block; }
 
-  /* ACCORDIONS */
   .os-output-section {
     border: 1px solid rgba(255,255,255,0.07);
     border-radius: 10px; margin-bottom: 12px; overflow: hidden;
@@ -319,7 +331,6 @@
   .os-li-name { font-weight: 500; color: rgba(255,255,255,0.85); margin-bottom: 2px; }
   .os-li-desc { color: rgba(255,255,255,0.45); line-height: 1.55; font-size: 12px; }
 
-  /* PRO BONO */
   .os-probono {
     background: rgba(26,158,143,0.07);
     border: 1px solid rgba(26,158,143,0.18);
@@ -334,7 +345,6 @@
 
   .os-probono-attr { font-size: 13px; color: rgba(255,255,255,0.4); }
 
-  /* CTA */
   .os-cta-section { text-align: center; padding: 64px 0 0; }
 
   .os-cta-eyebrow {
@@ -392,7 +402,6 @@
 
   .os-footer-note a { color: rgba(255,255,255,0.35); text-decoration: underline; }
 
-  /* MOBILE */
   @media (max-width: 640px) {
     .os-nav { padding: 0 20px; }
     .os-nav-links { display: none; }
@@ -401,6 +410,7 @@
     .os-h1 { font-size: 30px; }
     .os-h2 { font-size: 22px; }
     .os-stat-row { grid-template-columns: 1fr; gap: 12px; }
+    .os-philosophy-section { padding: 24px; }
     .os-philosophy-grid { grid-template-columns: 1fr; }
     .os-tab-btn { padding: 10px 16px; font-size: 13px; }
     .os-probono { padding: 24px; }
@@ -423,7 +433,6 @@
     <a href="https://hiresignaliq.ai/#how-it-works" class="os-nav-link">How it works</a>
     <a href="https://hiresignaliq.github.io/hiresignaliq-legal/our-story.html" class="os-nav-link">Our Story</a>
     <a href="https://hiresignaliq.ai/#pricing" class="os-nav-link">Pricing</a>
-    <a href="https://buy.stripe.com/28E7sN51P5Z0cC8cnl6oo03" class="os-nav-cta">Get started</a>
   </div>
   <button class="os-nav-hamburger" onclick="toggleMobileNav()" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -435,7 +444,6 @@
   <a href="https://hiresignaliq.ai/#how-it-works" onclick="closeMobileNav()">How it works</a>
   <a href="https://hiresignaliq.github.io/hiresignaliq-legal/our-story.html" onclick="closeMobileNav()">Our Story</a>
   <a href="https://hiresignaliq.ai/#pricing" onclick="closeMobileNav()">Pricing</a>
-  <a href="https://buy.stripe.com/28E7sN51P5Z0cC8cnl6oo03" class="os-nav-cta" onclick="closeMobileNav()">Get started</a>
 </div>
 
 <div class="os-page">
@@ -448,18 +456,15 @@
       Our Story
       <span class="os-eyebrow-dot"></span>
     </div>
-
     <h1 class="os-h1">
       Built by someone who has sat<br>
       <span class="accent">on both sides of every hire.</span>
     </h1>
-
     <p class="os-p">
-      <strong>HireSignalIQ was not built in a vacuum.</strong> It was built by Gary Bresien — a senior executive search practitioner with 25 years of experience running searches across tech firms, AI startups, cybersecurity organizations, and executive leadership roles. Every feature, every prompt, every output section reflects something learned from an actual search, an actual candidate, or an actual hiring manager conversation.
+      <strong>HireSignal<span style="font-family:'Lora',Georgia,serif;font-size:1.08em;font-weight:600;">IQ</span> was not built in a vacuum.</strong> It was built by Gary Bresien — a senior executive search practitioner with 25 years of experience running searches across tech firms, AI startups, cybersecurity organizations, and executive leadership roles. Every feature, every prompt, every output section reflects something learned from an actual search, an actual candidate, or an actual hiring manager conversation.
     </p>
-
     <p class="os-p">
-      That provenance matters. Every competitor in this space was built by engineers. HireSignalIQ was built by someone who has made the calls, read the resumes, run the intake sessions, and placed the candidates. The AI thinks like a headhunter because a headhunter built it.
+      That provenance matters. Every competitor in this space was built by engineers. HireSignal<span style="font-family:'Lora',Georgia,serif;font-size:1.08em;font-weight:600;">IQ</span> was built by someone who has made the calls, read the resumes, run the intake sessions, and placed the candidates. The AI thinks like a headhunter because a headhunter built it.
     </p>
   </div>
 
@@ -472,17 +477,13 @@
       The background
       <span class="os-eyebrow-dot"></span>
     </div>
-
     <h2 class="os-h2">25 years. Every seat at the table.</h2>
-
     <p class="os-p">
       Gary's career in recruiting has taken him through every vantage point the industry offers. Individual contributor. Manager. Director. Principal. Owner. He has worked inside large multinational recruiting organizations, small boutique firms, and as a sole proprietor running retained searches. Before recruiting, he spent 13 years hiring, training, and developing people in other capacities — work that proved just as formative.
     </p>
-
     <p class="os-p">
       His recruiting work spans a wide range of industries and levels — from hospitality early in his career to finance, healthcare, and eventually technology, where the bulk of his experience now lives. Within tech, Gary has recruited across cybersecurity, cloud infrastructure, AI, and enterprise software — from mid-level individual contributors through Staff and Principal Engineers, Directors, VPs, and C-suite executives. His most recent focus has been on AI-centric tech startups, where speed of hire, quality of fit, and search precision are mission-critical.
     </p>
-
     <div class="os-stat-row">
       <div class="os-stat-card">
         <div class="os-stat-val">25+</div>
@@ -497,9 +498,8 @@
         <div class="os-stat-lbl">Sides of the hire —<br>recruiter and advisor</div>
       </div>
     </div>
-
     <p class="os-p">
-      That range of experience — across firm sizes, industries, levels, and roles — is what makes HireSignalIQ different from every tool built by people who have only ever observed recruiting from the outside. The intelligence embedded in every output was earned, not engineered.
+      That range of experience — across firm sizes, industries, levels, and roles — is what makes HireSignal<span style="font-family:'Lora',Georgia,serif;font-size:1.08em;font-weight:600;">IQ</span> different from every tool built by people who have only ever observed recruiting from the outside. The intelligence embedded in every output was earned, not engineered.
     </p>
   </div>
 
@@ -512,24 +512,17 @@
       The founding insight
       <span class="os-eyebrow-dot"></span>
     </div>
-
     <h2 class="os-h2">The question that started everything.</h2>
-
     <p class="os-p">
-      In the years leading up to HireSignalIQ's founding, Gary was deeply embedded in the AI tech startup ecosystem — not just as an observer, but as an active participant. He was recruiting for AI-centric companies, participating in AI community events and meetups as part of sponsoring organizations, and at times speaking within that community. He was watching clients ship products that were genuinely changing the pace of entire industries.
+      In the years leading up to HireSignal<span style="font-family:'Lora',Georgia,serif;font-size:1.08em;font-weight:600;">IQ</span>'s founding, Gary was deeply embedded in the AI tech startup ecosystem — not just as an observer, but as an active participant. He was recruiting for AI-centric companies, participating in AI community events and meetups as part of sponsoring organizations, and at times speaking within that community. He was watching clients ship products that were genuinely changing the pace of entire industries.
     </p>
-
     <div class="os-pullquote">
       <p>"If my clients can move this fast with AI — why am I still building search briefs the same way I did ten years ago?"</p>
     </div>
-
     <p class="os-p">
       That question didn't come from a whiteboard session or a business plan. It came from inside the work itself — from being close enough to the technology to recognize that the same advances reshaping his clients' products could reshape his own practice. The more Gary explored that question, the more he realized the opportunity wasn't just to automate repetitive tasks. It was to encode genuine recruiting expertise into an AI engine and make that expertise available to everyone who needs it — on both sides of the hire.
     </p>
-
-    <p class="os-p">
-      <strong>HireSignalIQ is the answer to that question.</strong>
-    </p>
+    <p class="os-p"><strong>HireSignal<span style="font-family:'Lora',Georgia,serif;font-size:1.08em;font-weight:600;">IQ</span> is the answer to that question.</strong></p>
   </div>
 
   <hr class="os-divider">
@@ -541,51 +534,49 @@
       Product philosophy
       <span class="os-eyebrow-dot"></span>
     </div>
-
     <h2 class="os-h2">Four principles that drive every decision.</h2>
-
     <p class="os-p">
-      HireSignalIQ is not a feature list. It is a set of convictions about what recruiting intelligence should look like — and what it should never become.
+      HireSignal<span style="font-family:'Lora',Georgia,serif;font-size:1.08em;font-weight:600;">IQ</span> is not a feature list. It is a set of convictions about what recruiting intelligence should look like — and what it should never become.
     </p>
 
-    <div class="os-philosophy-grid">
-      <div class="os-phil-card">
-        <span class="os-phil-icon">🎯</span>
-        <div class="os-phil-title">Quality over volume</div>
-        <div class="os-phil-text">HireSignalIQ does not auto-apply on anyone's behalf. The platform was built on the conviction that one targeted, well-prepared application is worth more than a hundred spray-and-pray submissions — and the market is proving that right in 2026 as recruiters actively filter out mass-applied candidates.</div>
-      </div>
-      <div class="os-phil-card">
-        <span class="os-phil-icon">⚡</span>
-        <div class="os-phil-title">Elevation, not just automation</div>
-        <div class="os-phil-text">The goal is not to replace the work. It is to elevate the output. A recruiter using HireSignalIQ doesn't just save four hours — they start every search with a better brief than most would produce manually. A job seeker doesn't just save time — they apply with the confidence of someone who has a real recruiter in their corner.</div>
-      </div>
-      <div class="os-phil-card">
-        <span class="os-phil-icon">🔄</span>
-        <div class="os-phil-title">Both sides of the hire</div>
-        <div class="os-phil-text">No competitor serves recruiters and job seekers from the same platform. HireSignalIQ does — because the expertise that makes a great recruiter also makes a great job search. The same intelligence engine powers both products, and users on each side benefit from the knowledge built for the other.</div>
-      </div>
-      <div class="os-phil-card">
-        <span class="os-phil-icon">📄</span>
-        <div class="os-phil-title">You own your outputs</div>
-        <div class="os-phil-text">Every deliverable arrives as an editable Google Doc. No locked PDFs. No proprietary dashboard you have to learn. No data held hostage behind a subscription. Your outputs are yours — ready to edit, share, download, or hand off the moment they arrive.</div>
+    <div class="os-philosophy-section">
+      <div class="os-philosophy-grid">
+        <div class="os-phil-card">
+          <div class="os-phil-icon">🎯</div>
+          <div class="os-phil-title">Quality over volume</div>
+          <div class="os-phil-text">HireSignal<span style="font-family:'Lora',Georgia,serif;font-size:1.08em;font-weight:600;">IQ</span> does not auto-apply on anyone's behalf. <strong>One targeted, well-prepared application is worth more than a hundred spray-and-pray submissions</strong> — and the market is proving that right in 2026 as recruiters actively filter out mass-applied candidates.</div>
+        </div>
+        <div class="os-phil-card">
+          <div class="os-phil-icon">⚡</div>
+          <div class="os-phil-title">Elevation, not just automation</div>
+          <div class="os-phil-text">The goal is not to replace the work. It is to <strong>elevate the output</strong>. A recruiter using HireSignal<span style="font-family:'Lora',Georgia,serif;font-size:1.08em;font-weight:600;">IQ</span> doesn't just save four hours — they start every search with a better brief than most would produce manually. A job seeker doesn't just save time — they apply with the confidence of someone who has a real recruiter in their corner.</div>
+        </div>
+        <div class="os-phil-card">
+          <div class="os-phil-icon">🔄</div>
+          <div class="os-phil-title">Both sides of the hire</div>
+          <div class="os-phil-text">No competitor serves recruiters and job seekers from the same platform. <strong>HireSignal<span style="font-family:'Lora',Georgia,serif;font-size:1.08em;font-weight:600;">IQ</span> does</strong> — because the expertise that makes a great recruiter also makes a great job search. The same intelligence engine powers both products, and users on each side benefit from the knowledge built for the other.</div>
+        </div>
+        <div class="os-phil-card">
+          <div class="os-phil-icon">📄</div>
+          <div class="os-phil-title">You own your outputs</div>
+          <div class="os-phil-text">Every deliverable arrives as an <strong>editable Google Doc</strong>. No locked PDFs. No proprietary dashboard you have to learn. No data held hostage behind a subscription. Your outputs are yours — ready to edit, share, download, or hand off the moment they arrive.</div>
+        </div>
       </div>
     </div>
   </div>
 
   <hr class="os-divider">
 
-  <!-- SECTION 5: WHAT YOU GET — TABBED -->
+  <!-- SECTION 5: WHAT YOU GET -->
   <div class="os-section">
     <div class="os-eyebrow">
       <span class="os-eyebrow-dot"></span>
       What you get
       <span class="os-eyebrow-dot"></span>
     </div>
-
     <h2 class="os-h2">Every section. Every output. No surprises.</h2>
-
     <p class="os-p">
-      HireSignalIQ delivers complete, structured intelligence — not a summary, not a snippet. Here is exactly what arrives in your inbox within minutes of submitting your inputs.
+      HireSignal<span style="font-family:'Lora',Georgia,serif;font-size:1.08em;font-weight:600;">IQ</span> delivers complete, structured intelligence — not a summary, not a snippet. Here is exactly what arrives in your inbox within minutes of submitting your inputs.
     </p>
 
     <div class="os-tabs-wrap">
@@ -594,12 +585,8 @@
         <button class="os-tab-btn" onclick="osTab('jobseeker')">For Job Seekers</button>
       </div>
 
-      <!-- RECRUITER TAB -->
       <div class="os-tab-panel active" id="os-tab-recruiter">
-
-        <p class="os-p" style="margin-bottom:24px;">
-          The recruiter product delivers <strong>three Google Documents</strong> — a Search Brief, a Screening & Interview Kit, and a rewritten Job Description — plus a summary email with all document links and a unique Search ID for future updates.
-        </p>
+        <p class="os-p" style="margin-bottom:24px;">The recruiter product delivers <strong>three Google Documents</strong> — a Search Brief, a Screening & Interview Kit, and a rewritten Job Description — plus a summary email with all document links and a unique Search ID for future updates.</p>
 
         <div class="os-output-section open">
           <div class="os-output-header" onclick="osToggle(this)">
@@ -619,7 +606,7 @@
               <li><span class="os-li-marker"></span><div><div class="os-li-name">Nice-to-Have Competencies</div><div class="os-li-desc">Differentiating factors that strengthen a candidate's fit without being disqualifying if absent.</div></div></li>
               <li><span class="os-li-marker"></span><div><div class="os-li-name">Red Flags to Screen For</div><div class="os-li-desc">Specific warning signs — background gaps, role mismatches, experience patterns — that indicate a candidate is unlikely to succeed.</div></div></li>
               <li><span class="os-li-marker"></span><div><div class="os-li-name">HireSignal Profile Analysis</div><div class="os-li-desc">When candidate profiles are submitted, the AI identifies patterns across their backgrounds and sharpens every output section accordingly.</div></div></li>
-              <li><span class="os-li-marker"></span><div><div class="os-li-name">Target Companies</div><div class="os-li-desc">A curated list of companies most likely to employ the right candidate — calibrated to the role requirements and candidate profile patterns.</div></div></li>
+              <li><span class="os-li-marker"></span><div><div class="os-li-name">Target Companies</div><div class="os-li-desc">A curated list of companies most likely to employ the right candidate — calibrated to role requirements and candidate profile patterns.</div></div></li>
               <li><span class="os-li-marker"></span><div><div class="os-li-name">Adjacent Talent Pools</div><div class="os-li-desc">Non-obvious sourcing channels — adjacent industries, titles, company types — that expand the search without diluting quality.</div></div></li>
               <li><span class="os-li-marker"></span><div><div class="os-li-name">Boolean Search Strings</div><div class="os-li-desc">Three ready-to-use Boolean strings — core title and skills, adjacent titles, and company-targeted — formatted for LinkedIn Recruiter.</div></div></li>
               <li><span class="os-li-marker"></span><div><div class="os-li-name">LinkedIn Recruiter Search Recipe</div><div class="os-li-desc">Three fully specified LinkedIn Recruiter searches — title filters, seniority settings, company targets, keyword Booleans, and exclusions — ready to copy directly.</div></div></li>
@@ -662,7 +649,7 @@
             <p class="os-output-intro">Produced when requested at intake. Choose internal format, confidential third-party format, or both.</p>
             <ul class="os-section-list">
               <li><span class="os-li-marker"></span><div><div class="os-li-name">Internal Version</div><div class="os-li-desc">An optimized job description for use on the company's own careers page — company name included, structured for clarity and candidate appeal.</div></div></li>
-              <li><span class="os-li-marker"></span><div><div class="os-li-name">Confidential Third-Party Version</div><div class="os-li-desc">A version that protects the client's identity — company name and identifying details removed — for use by recruiters posting on behalf of clients.</div></div></li>
+              <li><span class="os-li-marker"></span><div><div class="os-li-name">Confidential Third-Party Version</div><div class="os-li-desc">A version that protects the client's identity — company name and identifying details removed — for recruiters posting on behalf of clients.</div></div></li>
             </ul>
             <p style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:12px;line-height:1.6;">Note: The JD Rewrite output is currently being enhanced to deliver more substantial, fully restructured job descriptions.</p>
           </div>
@@ -677,23 +664,18 @@
             <span class="os-output-chevron">⌄</span>
           </div>
           <div class="os-output-body">
-            <p class="os-output-intro">Included with every Recruiter plan at no extra cost. Submit your Search ID with new inputs and get a fully updated brief.</p>
+            <p class="os-output-intro">Included with every Recruiter plan at no extra cost. Simply submit your Search ID along with any new inputs — updated candidate profiles, revised intake notes, or changed requirements — and receive a fully updated brief within minutes.</p>
             <ul class="os-section-list">
-              <li><span class="os-li-marker"></span><div><div class="os-li-name">Search ID Lookup</div><div class="os-li-desc">Submit your original Search ID with new candidate profiles, revised intake notes, or changed requirements.</div></div></li>
-              <li><span class="os-li-marker"></span><div><div class="os-li-name">Fully Updated Brief</div><div class="os-li-desc">All three Google Documents are regenerated with the updated inputs incorporated.</div></div></li>
-              <li><span class="os-li-marker"></span><div><div class="os-li-name">Update Summary</div><div class="os-li-desc">A clear summary of what changed between the original brief and the updated version.</div></div></li>
+              <li><span class="os-li-marker"></span><div><div class="os-li-name">Search ID Lookup</div><div class="os-li-desc">Submit your original Search ID with new candidate profiles, revised intake notes, or changed requirements. The system retrieves your original brief and combines it with the new information.</div></div></li>
+              <li><span class="os-li-marker"></span><div><div class="os-li-name">Fully Updated Brief</div><div class="os-li-desc">All three Google Documents are regenerated with the updated inputs incorporated — Boolean strings, target companies, screening questions, and outreach intelligence all refreshed.</div></div></li>
+              <li><span class="os-li-marker"></span><div><div class="os-li-name">Update Summary</div><div class="os-li-desc">A clear summary of what changed between the original brief and the updated version — so you know exactly what to act on.</div></div></li>
             </ul>
           </div>
         </div>
-
       </div>
 
-      <!-- JOB SEEKER TAB -->
       <div class="os-tab-panel" id="os-tab-jobseeker">
-
-        <p class="os-p" style="margin-bottom:24px;">
-          The job seeker product delivers <strong>one comprehensive Google Document</strong> — your Application Brief — plus a personal Google Sheets application tracker that grows with every brief you generate.
-        </p>
+        <p class="os-p" style="margin-bottom:24px;">The job seeker product delivers <strong>one comprehensive Google Document</strong> — your Application Brief — plus a personal Google Sheets application tracker that grows with every brief you generate.</p>
 
         <div class="os-output-section open">
           <div class="os-output-header" onclick="osToggle(this)">
@@ -732,42 +714,36 @@
             <ul class="os-section-list">
               <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Auto-Populated on Every Submission</div><div class="os-li-desc">Each brief adds a new row — role title, company, date, HireSignal Score, and a direct link to your Application Brief Google Doc.</div></div></li>
               <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Application Status Tracking</div><div class="os-li-desc">A dropdown for each role — Applied, Not Applied, Interviewing, Rejected — so you always know where each opportunity stands.</div></div></li>
-              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Your Data, Your Drive</div><div class="os-li-desc">The tracker lives in your personal Google Drive — not inside HireSignalIQ. You own it completely.</div></div></li>
+              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Your Data, Your Drive</div><div class="os-li-desc">The tracker lives in your personal Google Drive — not inside HireSignal<span style="font-family:'Lora',Georgia,serif;font-size:1.08em;font-weight:600;">IQ</span>. You own it completely.</div></div></li>
             </ul>
           </div>
         </div>
-
       </div>
     </div>
   </div>
 
   <hr class="os-divider">
 
-  <!-- SECTION 6: PRO BONO STORY -->
+  <!-- SECTION 6: PRO BONO -->
   <div class="os-section">
     <div class="os-eyebrow">
       <span class="os-eyebrow-dot"></span>
       The principle behind the product
       <span class="os-eyebrow-dot"></span>
     </div>
-
     <h2 class="os-h2">Helping people has always been the job.</h2>
-
     <p class="os-p">
-      Long before HireSignalIQ existed, Gary was spending hours on the phone with candidates he had no open role for. No placement fee at the end. No business reason to take the call. Just someone navigating a difficult job search who needed a real recruiter's perspective — and Gary giving it to them.
+      Long before HireSignal<span style="font-family:'Lora',Georgia,serif;font-size:1.08em;font-weight:600;">IQ</span> existed, Gary was spending hours on the phone with candidates he had no open role for. No placement fee at the end. No business reason to take the call. Just someone navigating a difficult job search who needed a real recruiter's perspective — and Gary giving it to them.
     </p>
-
     <p class="os-p">
       These weren't rare exceptions. They were a consistent thread across his career. Laid-off executives. Career changers. First-time job seekers trying to understand how the process actually works from the other side. Gary would walk through LinkedIn strategies, networking approaches, how to pursue conversations with intention, how to work smarter rather than harder. Candidates were consistently grateful — and consistently puzzled that he wasn't charging for it.
     </p>
-
     <div class="os-probono">
       <p class="os-probono-quote">"They would always ask why I wasn't charging for this. The honest answer was that helping people navigate something complex and come out the other side with a real advantage — that's just what I do."</p>
-      <p class="os-probono-attr">— Gary Bresien, Founder, HireSignalIQ</p>
+      <p class="os-probono-attr">— Gary Bresien, Founder, HireSignal<span style="font-family:'Lora',Georgia,serif;font-size:1.08em;font-weight:600;">IQ</span></p>
     </div>
-
     <p class="os-p" style="margin-top:24px;">
-      HireSignalIQ is, in part, the answer to that question. The same expertise Gary was giving away for free in phone calls is now inside every output — available to any recruiter or job seeker who needs it, at any hour, for any role, at a price that reflects what it should have cost all along.
+      HireSignal<span style="font-family:'Lora',Georgia,serif;font-size:1.08em;font-weight:600;">IQ</span> is, in part, the answer to that question. The same expertise Gary was giving away for free in phone calls is now inside every output — available to any recruiter or job seeker who needs it, at any hour, for any role, at a price that reflects what it should have cost all along.
     </p>
   </div>
 
@@ -779,12 +755,8 @@
     <h2 class="os-cta-headline">The intelligence is ready.<br>Are you?</h2>
     <p class="os-cta-sub">Founding member pricing is live. Lock in 50% off permanently — recruiter plan at $49/mo, job seeker plan at $14/mo.</p>
     <div class="os-cta-buttons">
-      <a href="https://buy.stripe.com/28E7sN51P5Z0cC8cnl6oo03" class="os-btn-primary">
-        I'm a recruiter →
-      </a>
-      <a href="https://buy.stripe.com/9B63cx9i587845C9b96oo00" class="os-btn-secondary">
-        I'm a job seeker →
-      </a>
+      <a href="https://buy.stripe.com/28E7sN51P5Z0cC8cnl6oo03" class="os-btn-primary">I'm a recruiter →</a>
+      <a href="https://buy.stripe.com/9B63cx9i587845C9b96oo00" class="os-btn-secondary">I'm a job seeker →</a>
     </div>
     <p class="os-footer-note">No contracts. Cancel anytime. Access continues to end of paid period.<br>Questions? <a href="mailto:hello@hiresignaliq.ai">hello@hiresignaliq.ai</a></p>
   </div>
@@ -796,11 +768,9 @@
   function toggleMobileNav() {
     document.getElementById('osMobileNav').classList.toggle('open');
   }
-
   function closeMobileNav() {
     document.getElementById('osMobileNav').classList.remove('open');
   }
-
   function osTab(tab) {
     document.querySelectorAll('.os-tab-btn').forEach(function(btn, i) {
       btn.classList.toggle('active', (i === 0 && tab === 'recruiter') || (i === 1 && tab === 'jobseeker'));
@@ -808,7 +778,6 @@
     document.getElementById('os-tab-recruiter').classList.toggle('active', tab === 'recruiter');
     document.getElementById('os-tab-jobseeker').classList.toggle('active', tab === 'jobseeker');
   }
-
   function osToggle(header) {
     header.parentElement.classList.toggle('open');
   }
