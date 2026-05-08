@@ -9,7 +9,11 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    overflow-y: auto !important;
+    height: auto !important;
+  }
 
   body {
     font-family: 'DM Sans', Arial, sans-serif;
@@ -17,6 +21,8 @@
     color: #ffffff;
     min-height: 100vh;
     overflow-x: hidden;
+    overflow-y: auto !important;
+    height: auto !important;
   }
 
   /* NAV */
@@ -70,7 +76,7 @@
   .os-nav-link {
     font-size: 14px; color: rgba(255,255,255,0.6);
     text-decoration: none; font-weight: 400;
-    transition: color 0.2s; cursor: pointer;
+    transition: color 0.2s;
   }
 
   .os-nav-link:hover { color: #fff; }
@@ -359,7 +365,8 @@
     font-size: 15px; font-weight: 500;
     font-family: 'DM Sans', Arial, sans-serif;
     padding: 13px 28px; border-radius: 9px;
-    text-decoration: none; transition: background 0.2s, transform 0.15s;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
     border: none; cursor: pointer;
   }
 
@@ -638,7 +645,7 @@
               <li><span class="os-li-marker blue"></span><div><div class="os-li-name">Candidate Scorecard</div><div class="os-li-desc">A weighted scoring framework with 4–5 evaluation criteria, each assigned a percentage weight that reflects the true priorities of the role.</div></div></li>
               <li><span class="os-li-marker blue"></span><div><div class="os-li-name">Role-Specific Screening Questions</div><div class="os-li-desc">5–7 questions calibrated to the specific role, level, and competencies — not generic interview questions.</div></div></li>
               <li><span class="os-li-marker blue"></span><div><div class="os-li-name">Strong & Weak Answer Guides</div><div class="os-li-desc">For each question, a description of what a strong answer looks like and what a weak answer looks like.</div></div></li>
-              <li><span class="os-li-marker blue"></span><div><div class="os-li-name">3-Point Scoring Rubric</div><div class="os-li-desc">A simple Strong / Acceptable / Weak rubric for every question — makes post-interview debriefs faster and candidate comparisons more objective.</div></div></li>
+              <li><span class="os-li-marker blue"></span><div><div class="os-li-name">3-Point Scoring Rubric</div><div class="os-li-desc">A simple Strong / Acceptable / Weak rubric for every question — makes post-interview debriefs faster and more objective.</div></div></li>
             </ul>
           </div>
         </div>
@@ -672,8 +679,8 @@
           <div class="os-output-body">
             <p class="os-output-intro">Included with every Recruiter plan at no extra cost. Submit your Search ID with new inputs and get a fully updated brief.</p>
             <ul class="os-section-list">
-              <li><span class="os-li-marker"></span><div><div class="os-li-name">Search ID Lookup</div><div class="os-li-desc">Submit your original Search ID with new candidate profiles, revised intake notes, or changed requirements. The system retrieves your original brief and combines it with the new information.</div></div></li>
-              <li><span class="os-li-marker"></span><div><div class="os-li-name">Fully Updated Brief</div><div class="os-li-desc">All three Google Documents are regenerated with the updated inputs — Boolean strings, target companies, screening questions, and outreach intelligence all refreshed.</div></div></li>
+              <li><span class="os-li-marker"></span><div><div class="os-li-name">Search ID Lookup</div><div class="os-li-desc">Submit your original Search ID with new candidate profiles, revised intake notes, or changed requirements.</div></div></li>
+              <li><span class="os-li-marker"></span><div><div class="os-li-name">Fully Updated Brief</div><div class="os-li-desc">All three Google Documents are regenerated with the updated inputs incorporated.</div></div></li>
               <li><span class="os-li-marker"></span><div><div class="os-li-name">Update Summary</div><div class="os-li-desc">A clear summary of what changed between the original brief and the updated version.</div></div></li>
             </ul>
           </div>
@@ -700,14 +707,14 @@
             <p class="os-output-intro">The Application Brief replaces hours of manual tailoring with a complete, role-specific intelligence package. The moment you open it, the relief is immediate: this application is not a shot in the dark.</p>
             <ul class="os-section-list">
               <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Role & Company Header</div><div class="os-li-desc">The title and company name at the top of the brief — your anchor for every section that follows.</div></div></li>
-              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">HireSignal Score</div><div class="os-li-desc">Your match percentage for this specific role — broken down into Skills, Experience, Industry, and Intangibles. Know before you apply whether this role is worth your time.</div></div></li>
+              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">HireSignal Score</div><div class="os-li-desc">Your match percentage for this specific role — broken down into Skills, Experience, Industry, and Intangibles.</div></div></li>
               <li><span class="os-li-marker purple"></span><div><div class="os-li-name">ATS Keyword Analysis</div><div class="os-li-desc">Every keyword the ATS is scanning for — marked as covered, partially covered, or missing from your current resume.</div></div></li>
-              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Tailored Resume Bullets</div><div class="os-li-desc">Role-specific resume bullets written in your voice — calibrated to the language and priorities of this job posting, not copied from a generic library.</div></div></li>
-              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Tailored Professional Summary</div><div class="os-li-desc">A rewritten professional summary that leads with what this hiring manager is looking for — not a generic paragraph about your career.</div></div></li>
+              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Tailored Resume Bullets</div><div class="os-li-desc">Role-specific resume bullets written in your voice — calibrated to the language and priorities of this job posting.</div></div></li>
+              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Tailored Professional Summary</div><div class="os-li-desc">A rewritten professional summary that leads with what this hiring manager is looking for.</div></div></li>
               <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Cover Letter</div><div class="os-li-desc">A three-paragraph cover letter that sounds like you — specific to the role, credible in tone, and recruiter-readable.</div></div></li>
               <li><span class="os-li-marker purple"></span><div><div class="os-li-name">LinkedIn Optimization</div><div class="os-li-desc">Headline rewrites, About section guidance, skills to feature, and a connection strategy — all specific to this role.</div></div></li>
               <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Networking & Application Strategy</div><div class="os-li-desc">A targeted plan for who to reach out to, what to say, and how to approach the search strategically.</div></div></li>
-              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Application Recommendation</div><div class="os-li-desc">A direct recommendation — apply now, apply with these caveats, or reconsider — with specific guidance on how to position yourself.</div></div></li>
+              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Application Recommendation</div><div class="os-li-desc">A direct recommendation — apply now, apply with these caveats, or reconsider — with specific positioning guidance.</div></div></li>
             </ul>
           </div>
         </div>
