@@ -1,744 +1,811 @@
-<!-- HIRESIGNALIQ — SECTION 1: NAV + HERO + STATS BAR -->
-<!-- Two-column hero with interactive document stack -->
-<!-- Save a copy of this code in Google Drive before making any edits -->
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Story — HireSignalIQ</title>
+<meta name="description" content="Built by a senior recruiter who has run thousands of searches across 25 years. The story behind HireSignalIQ.">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&family=Lora:wght@600&display=swap" rel="stylesheet">
-
 <style>
-  html, body { margin: 0; padding: 0; overflow-x: hidden; }
-  .hsiq-reset * { box-sizing: border-box; margin: 0; padding: 0; }
-  .hsiq-reset { display: block; width: 100vw; max-width: 100%; overflow-x: hidden; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  .hsiq-wrap {
+  html { scroll-behavior: smooth; }
+
+  body {
     font-family: 'DM Sans', Arial, sans-serif;
     background: #1a2a2a;
-    width: 100%;
-    display: block;
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
   }
 
-  .hsiq-nav-placeholder {
+  /* NAV */
+  .os-nav {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
     height: 64px;
     background: #1a2a2a;
     border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-
-  .hsiq-hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    align-items: start;
-    padding: 72px 64px 64px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .hsiq-hero-left {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    padding-top: 24px;
-  }
-
-  .hsiq-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 15px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #1a9e8f;
-    margin-bottom: 20px;
-  }
-
-  .hsiq-eyebrow-dot {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: #1a9e8f;
-    opacity: 0.5;
-  }
-
-  .hsiq-headline {
-    font-size: 36px;
-    font-weight: 600;
-    color: #ffffff;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    margin-bottom: 16px;
-  }
-
-  .hsiq-headline-accent { color: #1a9e8f; }
-
-  .hsiq-subheadline {
-    font-size: 16px;
-    color: rgba(255,255,255,0.6);
-    line-height: 1.7;
-    margin-bottom: 16px;
-  }
-
-  .hsiq-subheadline strong {
-    color: rgba(255,255,255,0.9);
-    font-weight: 500;
-  }
-
-  .hsiq-founder-line {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    background: rgba(26,158,143,0.08);
-    border: 1px solid rgba(26,158,143,0.2);
-    border-radius: 8px;
-    padding: 12px 16px;
-    margin-bottom: 28px;
-  }
-
-  .hsiq-founder-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
-
-  .hsiq-founder-text {
-    font-size: 13px;
-    color: rgba(255,255,255,0.7);
-    line-height: 1.6;
-  }
-
-  .hsiq-founder-text strong { color: #1a9e8f; font-weight: 500; }
-
-  .hsiq-cta-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 16px;
-    flex-wrap: wrap;
-  }
-
-  .hsiq-btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: #1a9e8f;
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: 500;
-    font-family: 'DM Sans', Arial, sans-serif;
-    padding: 13px 28px;
-    border-radius: 9px;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
-    border: none;
-    cursor: pointer;
-  }
-
-  .hsiq-btn-primary:hover { background: #158a7c; transform: translateY(-1px); }
-
-  .hsiq-btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255,255,255,0.06);
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: 500;
-    font-family: 'DM Sans', Arial, sans-serif;
-    padding: 13px 28px;
-    border-radius: 9px;
-    text-decoration: none;
-    border: 1px solid rgba(255,255,255,0.2);
-    transition: background 0.2s, transform 0.15s;
-    cursor: pointer;
-  }
-
-  .hsiq-btn-secondary:hover { background: rgba(255,255,255,0.1); transform: translateY(-1px); }
-
-  .hsiq-btn-arrow { font-size: 16px; opacity: 0.8; }
-
-  .hsiq-whisper {
-    display: flex;
-    align-items: flex-start;
-    padding: 10px 0;
-  }
-
-  .hsiq-whisper-quote {
-    font-size: 13px;
-    color: rgba(255,255,255,0.38);
-    line-height: 1.6;
-    font-style: italic;
-  }
-
-  .hsiq-whisper-quote span {
-    color: rgba(255,255,255,0.25);
-    font-style: normal;
-    font-size: 12px;
-    display: block;
-    margin-top: 4px;
-  }
-
-  /* RIGHT COLUMN — INTERACTIVE STACK */
-  .hsiq-doc-stack-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .hsiq-doc-stack {
-    position: relative;
-    width: 380px;
-    height: 680px;
-  }
-
-  .hsiq-doc-caption {
-    font-size: 12px;
-    color: rgba(255,255,255,0.35);
-    text-align: center;
-    letter-spacing: 0.05em;
-    line-height: 1.6;
-    width: 100%;
-  }
-
-  .hsiq-doc-caption strong { color: rgba(255,255,255,0.55); font-weight: 500; }
-
-  .hsiq-doc-caption-pills {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 8px;
-    flex-wrap: wrap;
-  }
-
-  .hsiq-cap-btn {
-    font-size: 11px;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-family: 'DM Sans', Arial, sans-serif;
-    cursor: pointer;
-    transition: all 0.2s;
-    background: transparent;
-  }
-
-  .hsiq-cap-btn.purple { border: 1px solid rgba(123,79,166,0.6); color: #a87fd4; }
-  .hsiq-cap-btn.purple.active { background: rgba(123,79,166,0.15); }
-  .hsiq-cap-btn.teal { border: 1px solid rgba(26,158,143,0.5); color: #1a9e8f; }
-  .hsiq-cap-btn.teal.active { background: rgba(26,158,143,0.12); }
-  .hsiq-cap-btn.blue { border: 1px solid rgba(42,100,150,0.5); color: #5a9fd4; }
-  .hsiq-cap-btn.blue.active { background: rgba(42,100,150,0.12); }
-
-  .hsiq-doc-card {
-    position: absolute;
-    width: 290px;
-    background: #ffffff;
-    border-radius: 10px;
-    padding: 14px 16px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-    transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1);
-    overflow: hidden;
-    font-family: 'DM Sans', Arial, sans-serif;
-  }
-
-  .hsiq-doc-header {
+    z-index: 99999;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 8px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #f0f0f0;
+    padding: 0 48px;
   }
 
-  .hsiq-doc-brand { display: flex; align-items: center; gap: 6px; }
+  .os-nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
 
-  .hsiq-doc-monogram {
-    width: 20px; height: 20px;
+  .os-nav-monogram {
+    width: 34px; height: 34px;
     background: #1a9e8f;
-    border-radius: 4px;
+    border-radius: 8px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 8px; font-weight: 700; color: #fff;
-    flex-shrink: 0;
+    font-size: 13px; font-weight: 600; color: #fff;
+    letter-spacing: -0.02em; flex-shrink: 0;
   }
 
-  .hsiq-doc-brand-name { font-size: 11px; font-weight: 600; color: #1a2a2a; }
+  .os-nav-wordmark-wrap { display: flex; flex-direction: column; gap: 1px; }
 
-  .hsiq-doc-type {
-    font-size: 9px; font-weight: 600; color: #fff;
-    padding: 2px 7px; border-radius: 4px;
-    text-transform: uppercase; letter-spacing: 0.04em;
-    white-space: nowrap;
+  .os-nav-wordmark {
+    font-size: 15px; font-weight: 600; color: #fff;
+    letter-spacing: -0.02em; line-height: 1;
   }
 
-  .hsiq-doc-type.search { background: #1a9e8f; }
-  .hsiq-doc-type.screening { background: #2a6496; }
-  .hsiq-doc-type.app { background: #7b4fa6; }
-
-  .hsiq-doc-title {
-    font-size: 11px; font-weight: 600; color: #1a2a2a;
-    margin-bottom: 10px; line-height: 1.3;
+  .os-nav-tagline {
+    font-size: 10px; color: #1a9e8f;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    font-weight: 500; line-height: 1;
   }
 
-  .hsiq-sec-label {
-    font-size: 9px; font-weight: 600;
-    text-transform: uppercase; letter-spacing: 0.05em;
-    margin-bottom: 4px;
+  .os-nav-links {
+    display: flex; align-items: center; gap: 32px;
   }
 
-  .hsiq-sec-label.teal { color: #1a9e8f; }
-  .hsiq-sec-label.blue { color: #2a6496; }
-  .hsiq-sec-label.purple { color: #7b4fa6; }
-
-  .hsiq-row-item {
-    display: flex; justify-content: space-between;
-    font-size: 9px; padding: 3px 0;
-    border-bottom: 1px solid #f5f5f5;
+  .os-nav-link {
+    font-size: 14px; color: rgba(255,255,255,0.6);
+    text-decoration: none; font-weight: 400;
+    transition: color 0.2s; cursor: pointer;
   }
 
-  .hsiq-row-item:last-child { border-bottom: none; }
-  .hsiq-row-item span:first-child { color: #333; }
+  .os-nav-link:hover { color: #fff; }
 
-  .hsiq-arrow-list-item {
-    font-size: 10px; color: #333;
-    padding: 2px 0 2px 12px;
-    position: relative;
-    border-bottom: 1px solid #f5f5f5;
-    line-height: 1.4;
+  .os-nav-cta {
+    background: #1a9e8f; color: #fff;
+    font-size: 14px; font-weight: 500;
+    padding: 9px 20px; border-radius: 8px;
+    text-decoration: none; transition: background 0.2s;
   }
 
-  .hsiq-arrow-list-item:last-child { border-bottom: none; }
-  .hsiq-arrow-list-item .arr { position: absolute; left: 0; font-size: 10px; }
+  .os-nav-cta:hover { background: #158a7c; }
 
-  .hsiq-pills { display: flex; flex-wrap: wrap; gap: 3px; }
-
-  .hsiq-pill {
-    font-size: 9px; padding: 2px 6px;
-    border-radius: 4px;
+  .os-nav-hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    cursor: pointer; background: none; border: none; padding: 4px;
   }
 
-  .hsiq-pill.gray { background: #f5f5f5; border: 1px solid #e0e0e0; color: #444; }
-  .hsiq-pill.green { background: #e8f8f6; border: 1px solid #c8ede9; color: #1a7a6e; }
-  .hsiq-pill.red { background: #fef3f2; border: 1px solid #fad4d1; color: #c0392b; }
-
-  .hsiq-score-box {
-    display: flex; align-items: center; gap: 8px;
-    background: #f0faf9; border: 1px solid #c8ede9;
-    border-radius: 6px; padding: 8px 10px; margin-bottom: 8px;
+  .os-nav-hamburger span {
+    display: block; width: 22px; height: 2px;
+    background: rgba(255,255,255,0.8); border-radius: 2px;
   }
 
-  .hsiq-score-num {
-    font-size: 20px; font-weight: 700; color: #1a9e8f;
-    font-family: 'DM Mono', monospace; line-height: 1;
+  .os-mobile-menu {
+    display: none;
+    position: fixed;
+    top: 64px; left: 0; width: 100%;
+    background: #1a2a2a;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 16px 24px 24px;
+    z-index: 99998;
+    flex-direction: column; gap: 16px;
   }
 
-  .hsiq-bool {
-    font-family: 'DM Mono', monospace;
-    font-size: 9px; color: #2a6496;
-    background: #f0f6ff; border: 1px solid #d0e4f7;
-    border-radius: 4px; padding: 5px 7px;
-    line-height: 1.5; display: block;
+  .os-mobile-menu.open { display: flex; }
+
+  .os-mobile-menu a {
+    font-size: 15px; color: rgba(255,255,255,0.7);
+    text-decoration: none; font-weight: 400; padding: 6px 0;
   }
 
-  .hsiq-rubric {
-    display: grid; grid-template-columns: 1fr 1fr 1fr;
-    gap: 4px; margin-top: 6px;
+  .os-mobile-menu .os-nav-cta {
+    text-align: center; padding: 12px 20px; color: #fff;
   }
 
-  .hsiq-rubric-cell {
-    padding: 4px 5px; border-radius: 4px;
-    font-size: 9px; line-height: 1.4; text-align: center;
+  /* PAGE CONTENT */
+  .os-page {
+    padding-top: 64px;
   }
 
-  .hsiq-rubric-cell.s { background: #e8f8f6; color: #1a7a6e; }
-  .hsiq-rubric-cell.a { background: #fff8e6; color: #8a6000; }
-  .hsiq-rubric-cell.w { background: #fef3f2; color: #c0392b; }
-
-  .hsiq-rec-box {
-    background: #f0faf9; border: 1px solid #c8ede9;
-    border-radius: 6px; padding: 6px 8px;
-    font-size: 10px; color: #1a7a6e; line-height: 1.5;
+  .os-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 80px 48px 120px;
   }
 
-  /* STATS BAR */
-  .hsiq-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+  .os-section { margin-bottom: 72px; }
+
+  .os-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: #1a9e8f; margin-bottom: 16px;
+  }
+
+  .os-eyebrow-dot {
+    width: 4px; height: 4px; border-radius: 50%;
+    background: #1a9e8f; opacity: 0.6;
+  }
+
+  .os-h1 {
+    font-size: 42px; font-weight: 600; color: #fff;
+    line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 24px;
+  }
+
+  .os-h1 .accent { color: #1a9e8f; }
+
+  .os-h2 {
+    font-size: 26px; font-weight: 600; color: #fff;
+    line-height: 1.25; letter-spacing: -0.02em; margin-bottom: 16px;
+  }
+
+  .os-p {
+    font-size: 16px; color: rgba(255,255,255,0.65);
+    line-height: 1.8; margin-bottom: 20px;
+  }
+
+  .os-p strong { color: rgba(255,255,255,0.9); font-weight: 500; }
+  .os-p:last-child { margin-bottom: 0; }
+
+  .os-pullquote {
+    border-left: 3px solid #1a9e8f;
+    padding: 4px 0 4px 24px;
+    margin: 32px 0;
+  }
+
+  .os-pullquote p {
+    font-size: 20px; font-weight: 500;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.6; font-style: italic; margin: 0;
+  }
+
+  .os-divider {
+    border: none;
     border-top: 1px solid rgba(255,255,255,0.08);
-    margin-top: 32px;
+    margin: 0 0 72px;
   }
 
-  .hsiq-stat {
-    text-align: center;
-    padding: 28px 24px;
-    border-right: 1px solid rgba(255,255,255,0.08);
+  .os-stat-row {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 16px; margin: 40px 0;
   }
 
-  .hsiq-stat:last-child { border-right: none; }
-
-  .hsiq-stat-val {
-    font-size: 28px; font-weight: 600; color: #1a9e8f;
-    letter-spacing: -0.03em; line-height: 1;
-    margin-bottom: 6px; font-family: 'DM Mono', monospace;
+  .os-stat-card {
+    background: rgba(26,158,143,0.08);
+    border: 1px solid rgba(26,158,143,0.2);
+    border-radius: 10px; padding: 20px; text-align: center;
   }
 
-  .hsiq-stat-lbl {
-    font-size: 12px; color: rgba(255,255,255,0.45);
-    line-height: 1.5; letter-spacing: 0.01em;
+  .os-stat-val {
+    font-size: 32px; font-weight: 600; color: #1a9e8f;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: -0.03em; line-height: 1; margin-bottom: 6px;
   }
+
+  .os-stat-lbl {
+    font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.5;
+  }
+
+  .os-philosophy-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 16px; margin-top: 32px;
+  }
+
+  .os-phil-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px; padding: 20px 22px;
+  }
+
+  .os-phil-icon { font-size: 20px; margin-bottom: 10px; display: block; }
+  .os-phil-title { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 6px; }
+  .os-phil-text { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.65; }
+
+  /* TABS */
+  .os-tabs-wrap { margin-top: 40px; }
+
+  .os-tab-buttons {
+    display: flex; gap: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 32px;
+  }
+
+  .os-tab-btn {
+    font-size: 14px; font-weight: 500;
+    font-family: 'DM Sans', Arial, sans-serif;
+    color: rgba(255,255,255,0.4);
+    background: none; border: none;
+    padding: 12px 28px; cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px; transition: color 0.2s, border-color 0.2s;
+  }
+
+  .os-tab-btn:hover { color: rgba(255,255,255,0.7); }
+  .os-tab-btn.active { color: #fff; border-bottom: 2px solid #1a9e8f; }
+
+  .os-tab-panel { display: none; }
+  .os-tab-panel.active { display: block; }
+
+  /* ACCORDIONS */
+  .os-output-section {
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px; margin-bottom: 12px; overflow: hidden;
+  }
+
+  .os-output-header {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px; cursor: pointer;
+    background: rgba(255,255,255,0.03);
+    transition: background 0.2s; user-select: none;
+  }
+
+  .os-output-header:hover { background: rgba(255,255,255,0.06); }
+
+  .os-output-header-left {
+    display: flex; align-items: center; gap: 12px;
+  }
+
+  .os-output-badge {
+    font-size: 10px; font-weight: 600;
+    padding: 3px 8px; border-radius: 4px;
+    text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap;
+  }
+
+  .os-output-badge.teal { background: rgba(26,158,143,0.2); color: #1a9e8f; }
+  .os-output-badge.blue { background: rgba(42,100,150,0.2); color: #5a9fd4; }
+  .os-output-badge.purple { background: rgba(123,79,166,0.2); color: #a87fd4; }
+
+  .os-output-title { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.85); }
+
+  .os-output-chevron {
+    font-size: 18px; color: rgba(255,255,255,0.3);
+    transition: transform 0.25s; line-height: 1;
+  }
+
+  .os-output-section.open .os-output-chevron { transform: rotate(180deg); }
+
+  .os-output-body {
+    display: none;
+    padding: 0 20px 20px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .os-output-section.open .os-output-body { display: block; }
+
+  .os-output-intro {
+    font-size: 14px; color: rgba(255,255,255,0.55);
+    line-height: 1.7; padding-top: 16px; margin-bottom: 16px;
+  }
+
+  .os-section-list { list-style: none; padding: 0; margin: 0; }
+
+  .os-section-list li {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 13px;
+  }
+
+  .os-section-list li:last-child { border-bottom: none; }
+
+  .os-li-marker {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #1a9e8f; flex-shrink: 0; margin-top: 6px;
+  }
+
+  .os-li-marker.blue { background: #5a9fd4; }
+  .os-li-marker.purple { background: #a87fd4; }
+
+  .os-li-name { font-weight: 500; color: rgba(255,255,255,0.85); margin-bottom: 2px; }
+  .os-li-desc { color: rgba(255,255,255,0.45); line-height: 1.55; font-size: 12px; }
+
+  /* PRO BONO */
+  .os-probono {
+    background: rgba(26,158,143,0.07);
+    border: 1px solid rgba(26,158,143,0.18);
+    border-radius: 12px; padding: 32px 36px; margin-top: 40px;
+  }
+
+  .os-probono-quote {
+    font-size: 18px; font-weight: 500;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.65; font-style: italic; margin-bottom: 20px;
+  }
+
+  .os-probono-attr { font-size: 13px; color: rgba(255,255,255,0.4); }
+
+  /* CTA */
+  .os-cta-section { text-align: center; padding: 64px 0 0; }
+
+  .os-cta-eyebrow {
+    font-size: 12px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: #1a9e8f; margin-bottom: 16px;
+  }
+
+  .os-cta-headline {
+    font-size: 32px; font-weight: 600; color: #fff;
+    letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 12px;
+  }
+
+  .os-cta-sub {
+    font-size: 16px; color: rgba(255,255,255,0.55);
+    line-height: 1.7; margin-bottom: 32px;
+    max-width: 480px; margin-left: auto; margin-right: auto;
+  }
+
+  .os-cta-buttons {
+    display: flex; align-items: center;
+    justify-content: center; gap: 12px; flex-wrap: wrap;
+  }
+
+  .os-btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #1a9e8f; color: #fff;
+    font-size: 15px; font-weight: 500;
+    font-family: 'DM Sans', Arial, sans-serif;
+    padding: 13px 28px; border-radius: 9px;
+    text-decoration: none; transition: background 0.2s, transform 0.15s;
+    border: none; cursor: pointer;
+  }
+
+  .os-btn-primary:hover { background: #158a7c; transform: translateY(-1px); }
+
+  .os-btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.06); color: #fff;
+    font-size: 15px; font-weight: 500;
+    font-family: 'DM Sans', Arial, sans-serif;
+    padding: 13px 28px; border-radius: 9px;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: background 0.2s, transform 0.15s; cursor: pointer;
+  }
+
+  .os-btn-secondary:hover { background: rgba(255,255,255,0.1); transform: translateY(-1px); }
+
+  .os-footer-note {
+    text-align: center; font-size: 12px;
+    color: rgba(255,255,255,0.25); margin-top: 24px; line-height: 1.6;
+  }
+
+  .os-footer-note a { color: rgba(255,255,255,0.35); text-decoration: underline; }
 
   /* MOBILE */
-  @media (max-width: 900px) {
-    .hsiq-hero {
-      grid-template-columns: 1fr;
-      padding: 48px 24px 40px;
-      gap: 40px;
-    }
-    .hsiq-hero-left { align-items: center; text-align: center; padding-top: 0; }
-    .hsiq-founder-line { text-align: left; }
-    .hsiq-cta-row { justify-content: center; }
-    .hsiq-doc-stack { width: 320px; height: 600px; }
-    .hsiq-doc-card { width: 250px; }
-    .hsiq-headline { font-size: 28px; }
-    .hsiq-eyebrow { font-size: 13px; }
-    .hsiq-stats { grid-template-columns: 1fr; }
-    .hsiq-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .hsiq-stat:last-child { border-bottom: none; }
+  @media (max-width: 640px) {
+    .os-nav { padding: 0 20px; }
+    .os-nav-links { display: none; }
+    .os-nav-hamburger { display: flex; }
+    .os-container { padding: 56px 24px 80px; }
+    .os-h1 { font-size: 30px; }
+    .os-h2 { font-size: 22px; }
+    .os-stat-row { grid-template-columns: 1fr; gap: 12px; }
+    .os-philosophy-grid { grid-template-columns: 1fr; }
+    .os-tab-btn { padding: 10px 16px; font-size: 13px; }
+    .os-probono { padding: 24px; }
+    .os-cta-headline { font-size: 26px; }
   }
 </style>
+</head>
+<body>
 
-<div class="hsiq-reset">
-<div class="hsiq-wrap">
+<!-- NAV -->
+<nav class="os-nav">
+  <a href="https://hiresignaliq.ai" class="os-nav-logo">
+    <div class="os-nav-monogram">hs</div>
+    <div class="os-nav-wordmark-wrap">
+      <span class="os-nav-wordmark">HireSignal<span style="font-family:'Lora',Georgia,serif;font-size:1.08em;font-weight:600;">IQ</span></span>
+      <span class="os-nav-tagline">Built by Recruiters</span>
+    </div>
+  </a>
+  <div class="os-nav-links">
+    <a href="https://hiresignaliq.ai/#how-it-works" class="os-nav-link">How it works</a>
+    <a href="https://hiresignaliq.github.io/hiresignaliq-legal/our-story.html" class="os-nav-link">Our Story</a>
+    <a href="https://hiresignaliq.ai/#pricing" class="os-nav-link">Pricing</a>
+    <a href="https://buy.stripe.com/28E7sN51P5Z0cC8cnl6oo03" class="os-nav-cta">Get started</a>
+  </div>
+  <button class="os-nav-hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-  <div class="hsiq-nav-placeholder"></div>
+<!-- MOBILE MENU -->
+<div class="os-mobile-menu" id="osMobileNav">
+  <a href="https://hiresignaliq.ai/#how-it-works" onclick="closeMobileNav()">How it works</a>
+  <a href="https://hiresignaliq.github.io/hiresignaliq-legal/our-story.html" onclick="closeMobileNav()">Our Story</a>
+  <a href="https://hiresignaliq.ai/#pricing" onclick="closeMobileNav()">Pricing</a>
+  <a href="https://buy.stripe.com/28E7sN51P5Z0cC8cnl6oo03" class="os-nav-cta" onclick="closeMobileNav()">Get started</a>
+</div>
 
-  <div class="hsiq-hero">
+<div class="os-page">
+<div class="os-container">
 
-    <!-- LEFT COLUMN -->
-    <div class="hsiq-hero-left">
-
-      <div class="hsiq-eyebrow">
-        <span class="hsiq-eyebrow-dot"></span>
-        AI Intelligence for Recruiters and Job Seekers
-        <span class="hsiq-eyebrow-dot"></span>
-      </div>
-
-      <h1 class="hsiq-headline">
-        Your clients expect a fully staffed executive search firm.<br>
-        <span class="hsiq-headline-accent">HireSignal<span style="font-family:'Lora',Georgia,serif;font-size:1.08em;font-weight:600;">IQ</span></span> ensures you deliver.
-      </h1>
-
-      <p class="hsiq-subheadline">
-        <strong>Recruiter-grade intelligence for both sides of the hire.</strong> Search briefs, screening kits, and LinkedIn search recipes for recruiters. HireSignal Score, ATS optimization, and application briefs for job seekers.
-      </p>
-
-      <div class="hsiq-founder-line">
-        <span class="hsiq-founder-icon">🎯</span>
-        <span class="hsiq-founder-text">
-          <strong>Built by a senior recruiter who has run thousands of searches across 25 years</strong> — spanning tech firms, AI startups, cybersecurity, and executive leadership. Not by engineers who have never made a hire.
-        </span>
-      </div>
-
-      <div class="hsiq-cta-row">
-        <a href="https://buy.stripe.com/28E7sN51P5Z0cC8cnl6oo03" class="hsiq-btn-primary">
-          I'm a recruiter <span class="hsiq-btn-arrow">→</span>
-        </a>
-        <a href="https://buy.stripe.com/9B63cx9i587845C9b96oo00" class="hsiq-btn-secondary">
-          I'm a job seeker <span class="hsiq-btn-arrow">→</span>
-        </a>
-      </div>
-
-      <div class="hsiq-whisper">
-        <div class="hsiq-whisper-quote">
-          "This would have taken me the better part of a day to build from scratch."
-          <span>— Early recruiter beta user &nbsp;·&nbsp; ⚠ Replace with real quote before wide launch</span>
-        </div>
-      </div>
-
+  <!-- SECTION 1: HERO -->
+  <div class="os-section">
+    <div class="os-eyebrow">
+      <span class="os-eyebrow-dot"></span>
+      Our Story
+      <span class="os-eyebrow-dot"></span>
     </div>
 
-    <!-- RIGHT COLUMN — INTERACTIVE DOCUMENT STACK -->
-    <div class="hsiq-doc-stack-wrap">
+    <h1 class="os-h1">
+      Built by someone who has sat<br>
+      <span class="accent">on both sides of every hire.</span>
+    </h1>
 
-      <div class="hsiq-doc-stack" id="hsiqStack">
+    <p class="os-p">
+      <strong>HireSignalIQ was not built in a vacuum.</strong> It was built by Gary Bresien — a senior executive search practitioner with 25 years of experience running searches across tech firms, AI startups, cybersecurity organizations, and executive leadership roles. Every feature, every prompt, every output section reflects something learned from an actual search, an actual candidate, or an actual hiring manager conversation.
+    </p>
 
-        <!-- CARD: SCREENING KIT -->
-        <div class="hsiq-doc-card" id="hsiq-card-screening">
-          <div class="hsiq-doc-header">
-            <div class="hsiq-doc-brand">
-              <div class="hsiq-doc-monogram">hs</div>
-              <span class="hsiq-doc-brand-name">HireSignalIQ</span>
-            </div>
-            <span class="hsiq-doc-type screening">Screening Kit</span>
-          </div>
-          <div class="hsiq-doc-title">Senior Staff Engineer — Screening & Interview Kit</div>
-          <div class="hsiq-sec-label blue" style="margin-bottom:5px;">Candidate Scorecard</div>
-          <div style="margin-bottom:10px;">
-            <div class="hsiq-row-item"><span>AI & Distributed Systems</span><span style="color:#2a6496;font-weight:600;">30%</span></div>
-            <div class="hsiq-row-item"><span>Independence & Problem Solving</span><span style="color:#2a6496;font-weight:600;">20%</span></div>
-            <div class="hsiq-row-item"><span>Leadership & Influence</span><span style="color:#2a6496;font-weight:600;">20%</span></div>
-            <div class="hsiq-row-item"><span>Startup & Enterprise Experience</span><span style="color:#2a6496;font-weight:600;">15%</span></div>
-            <div class="hsiq-row-item" style="border-bottom:none;"><span>Cultural & Philosophical Fit</span><span style="color:#2a6496;font-weight:600;">15%</span></div>
-          </div>
-          <div class="hsiq-sec-label blue" style="margin-bottom:4px;">Screening Question 1</div>
-          <div style="font-size:10px;color:#333;line-height:1.5;margin-bottom:6px;">Describe a complex problem you independently identified and solved. How did you define the issue and develop your solution?</div>
-          <div class="hsiq-rubric" style="margin-bottom:10px;">
-            <div class="hsiq-rubric-cell s">Strong (3)<br>Innovative, full ownership</div>
-            <div class="hsiq-rubric-cell a">Acceptable (2)<br>Guided, partial</div>
-            <div class="hsiq-rubric-cell w">Weak (1)<br>Step-by-step needed</div>
-          </div>
-          <div class="hsiq-sec-label blue" style="margin-bottom:4px;">Screening Question 2</div>
-          <div style="font-size:10px;color:#333;line-height:1.5;margin-bottom:6px;">How have you balanced startup agility vs. enterprise-level rigor in past roles?</div>
-          <div class="hsiq-rubric">
-            <div class="hsiq-rubric-cell s">Strong (3)<br>Concrete examples both</div>
-            <div class="hsiq-rubric-cell a">Acceptable (2)<br>Partial insight</div>
-            <div class="hsiq-rubric-cell w">Weak (1)<br>One environment only</div>
-          </div>
-        </div>
+    <p class="os-p">
+      That provenance matters. Every competitor in this space was built by engineers. HireSignalIQ was built by someone who has made the calls, read the resumes, run the intake sessions, and placed the candidates. The AI thinks like a headhunter because a headhunter built it.
+    </p>
+  </div>
 
-        <!-- CARD: SEARCH BRIEF -->
-        <div class="hsiq-doc-card" id="hsiq-card-search">
-          <div class="hsiq-doc-header">
-            <div class="hsiq-doc-brand">
-              <div class="hsiq-doc-monogram">hs</div>
-              <span class="hsiq-doc-brand-name">HireSignalIQ</span>
-            </div>
-            <span class="hsiq-doc-type search">Search Brief</span>
-          </div>
-          <div class="hsiq-doc-title">Senior Staff Engineer — AI Platform · Series A Startup</div>
-          <div class="hsiq-sec-label teal" style="margin-bottom:4px;">What the Hiring Manager Actually Wants</div>
-          <div style="font-size:10px;color:#333;line-height:1.5;margin-bottom:8px;">15+ years, hands-on coding required, startup + enterprise mix essential. AI/ML applied to business logic — not just research. Exceptional independence — candidate must define solutions without hand-holding.</div>
-          <div class="hsiq-sec-label teal" style="margin-bottom:4px;">Must-Have Competencies</div>
-          <div style="margin-bottom:8px;">
-            <div class="hsiq-arrow-list-item"><span class="arr" style="color:#1a9e8f;">→</span>Distributed systems architecture & AI integration</div>
-            <div class="hsiq-arrow-list-item"><span class="arr" style="color:#1a9e8f;">→</span>Independently define and implement complex solutions</div>
-            <div class="hsiq-arrow-list-item"><span class="arr" style="color:#1a9e8f;">→</span>Cloud systems, Kubernetes, scalable architecture</div>
-            <div class="hsiq-arrow-list-item" style="border-bottom:none;"><span class="arr" style="color:#1a9e8f;">→</span>Led engineering teams in high-impact roles</div>
-          </div>
-          <div class="hsiq-sec-label teal" style="margin-bottom:4px;">Target Companies</div>
-          <div class="hsiq-pills" style="margin-bottom:8px;">
-            <span class="hsiq-pill gray">Tier 1 Cloud</span>
-            <span class="hsiq-pill gray">AI Infrastructure</span>
-            <span class="hsiq-pill gray">Enterprise SaaS</span>
-            <span class="hsiq-pill gray">Fintech Scale-up</span>
-            <span class="hsiq-pill gray">Data Platform</span>
-            <span class="hsiq-pill gray">Cybersecurity Co.</span>
-          </div>
-          <div class="hsiq-sec-label teal" style="margin-bottom:4px;">Boolean Search String</div>
-          <code class="hsiq-bool" style="margin-bottom:8px;">("Senior Staff Engineer" OR "Principal Engineer") AND ("AI integration" OR "distributed systems") AND Kubernetes</code>
-          <div class="hsiq-sec-label teal" style="margin-bottom:4px;">Red Flags to Screen For</div>
-          <div class="hsiq-arrow-list-item"><span class="arr" style="color:#c0392b;">✗</span><span style="color:#c0392b;">No hands-on coding in recent roles</span></div>
-          <div class="hsiq-arrow-list-item" style="border-bottom:none;"><span class="arr" style="color:#c0392b;">✗</span><span style="color:#c0392b;">Experience limited to slow-moving enterprise environments</span></div>
-        </div>
+  <hr class="os-divider">
 
-        <!-- CARD: APPLICATION BRIEF -->
-        <div class="hsiq-doc-card" id="hsiq-card-app" style="box-shadow: 0 12px 40px rgba(0,0,0,0.6);">
-          <div class="hsiq-doc-header">
-            <div class="hsiq-doc-brand">
-              <div class="hsiq-doc-monogram">hs</div>
-              <span class="hsiq-doc-brand-name">HireSignalIQ</span>
-            </div>
-            <span class="hsiq-doc-type app">Application Brief</span>
-          </div>
-          <div class="hsiq-doc-title">Senior Talent Acquisition Lead — Series B Tech Company</div>
-          <div class="hsiq-score-box">
-            <div class="hsiq-score-num">88<span style="font-size:12px;color:#888;">/100</span></div>
-            <div>
-              <div style="font-size:10px;font-weight:700;color:#1a2a2a;">STRONG MATCH</div>
-              <div style="font-size:9px;color:#666;">HireSignal Score · Skills 38/40 · Experience 26/30</div>
-            </div>
-          </div>
-          <div class="hsiq-sec-label purple" style="margin-bottom:4px;">ATS Keyword Analysis</div>
-          <div class="hsiq-pills" style="margin-bottom:8px;">
-            <span class="hsiq-pill green">✓ Technical Recruiting</span>
-            <span class="hsiq-pill green">✓ Cloud Infrastructure</span>
-            <span class="hsiq-pill green">✓ Data Analytics</span>
-            <span class="hsiq-pill red">✗ Global Mobility</span>
-            <span class="hsiq-pill green">✓ SDLC</span>
-            <span class="hsiq-pill green">✓ Proactive Sourcing</span>
-          </div>
-          <div class="hsiq-sec-label purple" style="margin-bottom:4px;">Tailored Resume Bullets</div>
-          <div style="margin-bottom:8px;">
-            <div class="hsiq-arrow-list-item"><span class="arr" style="color:#7b4fa6;">→</span>Led team to increase recruiting efficiency 35% through AI-driven tools and strategic partnerships</div>
-            <div class="hsiq-arrow-list-item"><span class="arr" style="color:#7b4fa6;">→</span>Spearheaded cloud infrastructure hiring — 100% of vacancies filled in under 3 months</div>
-            <div class="hsiq-arrow-list-item" style="border-bottom:none;"><span class="arr" style="color:#7b4fa6;">→</span>Developed technical skills assessments resulting in 20% increase in candidate quality</div>
-          </div>
-          <div class="hsiq-sec-label purple" style="margin-bottom:4px;">LinkedIn Optimization</div>
-          <div style="font-size:10px;color:#333;line-height:1.5;margin-bottom:8px;"><strong style="color:#1a2a2a;">Headline rewrite:</strong> Strategic Talent Acquisition Leader | Technical Recruiting Innovator</div>
-          <div class="hsiq-sec-label purple" style="margin-bottom:4px;">Application Recommendation</div>
-          <div class="hsiq-rec-box">Strong match — apply now. Emphasize technical recruiting wins. Address global mobility gap in cover letter.</div>
-        </div>
+  <!-- SECTION 2: THE BACKGROUND -->
+  <div class="os-section">
+    <div class="os-eyebrow">
+      <span class="os-eyebrow-dot"></span>
+      The background
+      <span class="os-eyebrow-dot"></span>
+    </div>
 
+    <h2 class="os-h2">25 years. Every seat at the table.</h2>
+
+    <p class="os-p">
+      Gary's career in recruiting has taken him through every vantage point the industry offers. Individual contributor. Manager. Director. Principal. Owner. He has worked inside large multinational recruiting organizations, small boutique firms, and as a sole proprietor running retained searches. Before recruiting, he spent 13 years hiring, training, and developing people in other capacities — work that proved just as formative.
+    </p>
+
+    <p class="os-p">
+      His recruiting work spans a wide range of industries and levels — from hospitality early in his career to finance, healthcare, and eventually technology, where the bulk of his experience now lives. Within tech, Gary has recruited across cybersecurity, cloud infrastructure, AI, and enterprise software — from mid-level individual contributors through Staff and Principal Engineers, Directors, VPs, and C-suite executives. His most recent focus has been on AI-centric tech startups, where speed of hire, quality of fit, and search precision are mission-critical.
+    </p>
+
+    <div class="os-stat-row">
+      <div class="os-stat-card">
+        <div class="os-stat-val">25+</div>
+        <div class="os-stat-lbl">Years in talent<br>acquisition</div>
       </div>
-
-      <!-- CAPTION + BUTTONS -->
-      <div class="hsiq-doc-caption">
-        <strong>Real output. Delivered to your inbox in minutes.</strong>
-        <div class="hsiq-doc-caption-pills">
-          <button class="hsiq-cap-btn purple active" id="hsiq-btn-app" onclick="hsiqShow('app')">Application Brief</button>
-          <button class="hsiq-cap-btn teal" id="hsiq-btn-search" onclick="hsiqShow('search')">Search Brief</button>
-          <button class="hsiq-cap-btn blue" id="hsiq-btn-screening" onclick="hsiqShow('screening')">Screening Kit</button>
-        </div>
+      <div class="os-stat-card">
+        <div class="os-stat-val">1000s</div>
+        <div class="os-stat-lbl">Searches run across<br>industries and levels</div>
       </div>
+      <div class="os-stat-card">
+        <div class="os-stat-val">Both</div>
+        <div class="os-stat-lbl">Sides of the hire —<br>recruiter and advisor</div>
+      </div>
+    </div>
 
+    <p class="os-p">
+      That range of experience — across firm sizes, industries, levels, and roles — is what makes HireSignalIQ different from every tool built by people who have only ever observed recruiting from the outside. The intelligence embedded in every output was earned, not engineered.
+    </p>
+  </div>
+
+  <hr class="os-divider">
+
+  <!-- SECTION 3: THE FOUNDING INSIGHT -->
+  <div class="os-section">
+    <div class="os-eyebrow">
+      <span class="os-eyebrow-dot"></span>
+      The founding insight
+      <span class="os-eyebrow-dot"></span>
+    </div>
+
+    <h2 class="os-h2">The question that started everything.</h2>
+
+    <p class="os-p">
+      In the years leading up to HireSignalIQ's founding, Gary was deeply embedded in the AI tech startup ecosystem — not just as an observer, but as an active participant. He was recruiting for AI-centric companies, participating in AI community events and meetups as part of sponsoring organizations, and at times speaking within that community. He was watching clients ship products that were genuinely changing the pace of entire industries.
+    </p>
+
+    <div class="os-pullquote">
+      <p>"If my clients can move this fast with AI — why am I still building search briefs the same way I did ten years ago?"</p>
+    </div>
+
+    <p class="os-p">
+      That question didn't come from a whiteboard session or a business plan. It came from inside the work itself — from being close enough to the technology to recognize that the same advances reshaping his clients' products could reshape his own practice. The more Gary explored that question, the more he realized the opportunity wasn't just to automate repetitive tasks. It was to encode genuine recruiting expertise into an AI engine and make that expertise available to everyone who needs it — on both sides of the hire.
+    </p>
+
+    <p class="os-p">
+      <strong>HireSignalIQ is the answer to that question.</strong>
+    </p>
+  </div>
+
+  <hr class="os-divider">
+
+  <!-- SECTION 4: PRODUCT PHILOSOPHY -->
+  <div class="os-section">
+    <div class="os-eyebrow">
+      <span class="os-eyebrow-dot"></span>
+      Product philosophy
+      <span class="os-eyebrow-dot"></span>
+    </div>
+
+    <h2 class="os-h2">Four principles that drive every decision.</h2>
+
+    <p class="os-p">
+      HireSignalIQ is not a feature list. It is a set of convictions about what recruiting intelligence should look like — and what it should never become.
+    </p>
+
+    <div class="os-philosophy-grid">
+      <div class="os-phil-card">
+        <span class="os-phil-icon">🎯</span>
+        <div class="os-phil-title">Quality over volume</div>
+        <div class="os-phil-text">HireSignalIQ does not auto-apply on anyone's behalf. The platform was built on the conviction that one targeted, well-prepared application is worth more than a hundred spray-and-pray submissions — and the market is proving that right in 2026 as recruiters actively filter out mass-applied candidates.</div>
+      </div>
+      <div class="os-phil-card">
+        <span class="os-phil-icon">⚡</span>
+        <div class="os-phil-title">Elevation, not just automation</div>
+        <div class="os-phil-text">The goal is not to replace the work. It is to elevate the output. A recruiter using HireSignalIQ doesn't just save four hours — they start every search with a better brief than most would produce manually. A job seeker doesn't just save time — they apply with the confidence of someone who has a real recruiter in their corner.</div>
+      </div>
+      <div class="os-phil-card">
+        <span class="os-phil-icon">🔄</span>
+        <div class="os-phil-title">Both sides of the hire</div>
+        <div class="os-phil-text">No competitor serves recruiters and job seekers from the same platform. HireSignalIQ does — because the expertise that makes a great recruiter also makes a great job search. The same intelligence engine powers both products, and users on each side benefit from the knowledge built for the other.</div>
+      </div>
+      <div class="os-phil-card">
+        <span class="os-phil-icon">📄</span>
+        <div class="os-phil-title">You own your outputs</div>
+        <div class="os-phil-text">Every deliverable arrives as an editable Google Doc. No locked PDFs. No proprietary dashboard you have to learn. No data held hostage behind a subscription. Your outputs are yours — ready to edit, share, download, or hand off the moment they arrive.</div>
+      </div>
     </div>
   </div>
 
-  <!-- STATS BAR -->
-  <div class="hsiq-stats">
-    <div class="hsiq-stat">
-      <div class="hsiq-stat-val">10+</div>
-      <div class="hsiq-stat-lbl">Hours saved<br>per search</div>
+  <hr class="os-divider">
+
+  <!-- SECTION 5: WHAT YOU GET — TABBED -->
+  <div class="os-section">
+    <div class="os-eyebrow">
+      <span class="os-eyebrow-dot"></span>
+      What you get
+      <span class="os-eyebrow-dot"></span>
     </div>
-    <div class="hsiq-stat">
-      <div class="hsiq-stat-val">2 min</div>
-      <div class="hsiq-stat-lbl">To your first<br>output</div>
+
+    <h2 class="os-h2">Every section. Every output. No surprises.</h2>
+
+    <p class="os-p">
+      HireSignalIQ delivers complete, structured intelligence — not a summary, not a snippet. Here is exactly what arrives in your inbox within minutes of submitting your inputs.
+    </p>
+
+    <div class="os-tabs-wrap">
+      <div class="os-tab-buttons">
+        <button class="os-tab-btn active" onclick="osTab('recruiter')">For Recruiters</button>
+        <button class="os-tab-btn" onclick="osTab('jobseeker')">For Job Seekers</button>
+      </div>
+
+      <!-- RECRUITER TAB -->
+      <div class="os-tab-panel active" id="os-tab-recruiter">
+
+        <p class="os-p" style="margin-bottom:24px;">
+          The recruiter product delivers <strong>three Google Documents</strong> — a Search Brief, a Screening & Interview Kit, and a rewritten Job Description — plus a summary email with all document links and a unique Search ID for future updates.
+        </p>
+
+        <div class="os-output-section open">
+          <div class="os-output-header" onclick="osToggle(this)">
+            <div class="os-output-header-left">
+              <span class="os-output-badge teal">Google Doc 1</span>
+              <span class="os-output-title">Search Brief</span>
+            </div>
+            <span class="os-output-chevron">⌄</span>
+          </div>
+          <div class="os-output-body">
+            <p class="os-output-intro">The Search Brief is the operational foundation of every search. It captures what the job description doesn't say, calibrates targets against real candidate examples, and gives a recruiter everything needed to source, pitch, and screen — without starting from scratch.</p>
+            <ul class="os-section-list">
+              <li><span class="os-li-marker"></span><div><div class="os-li-name">Inputs Summary</div><div class="os-li-desc">Confirms which inputs were provided and how the brief was calibrated — JD only, with candidate profiles, or with intake notes.</div></div></li>
+              <li><span class="os-li-marker"></span><div><div class="os-li-name">Role Summary</div><div class="os-li-desc">A concise synthesis of the role — what it is, what success looks like, and how it fits within the organization.</div></div></li>
+              <li><span class="os-li-marker"></span><div><div class="os-li-name">What the Hiring Manager Actually Wants</div><div class="os-li-desc">Extracted from intake notes — the unstated preferences, real priorities, and cultural signals that never make it into the job description.</div></div></li>
+              <li><span class="os-li-marker"></span><div><div class="os-li-name">Must-Have Competencies</div><div class="os-li-desc">The non-negotiable skills, experiences, and attributes. Used to qualify candidates at first contact.</div></div></li>
+              <li><span class="os-li-marker"></span><div><div class="os-li-name">Nice-to-Have Competencies</div><div class="os-li-desc">Differentiating factors that strengthen a candidate's fit without being disqualifying if absent.</div></div></li>
+              <li><span class="os-li-marker"></span><div><div class="os-li-name">Red Flags to Screen For</div><div class="os-li-desc">Specific warning signs — background gaps, role mismatches, experience patterns — that indicate a candidate is unlikely to succeed.</div></div></li>
+              <li><span class="os-li-marker"></span><div><div class="os-li-name">HireSignal Profile Analysis</div><div class="os-li-desc">When candidate profiles are submitted, the AI identifies patterns across their backgrounds and sharpens every output section accordingly.</div></div></li>
+              <li><span class="os-li-marker"></span><div><div class="os-li-name">Target Companies</div><div class="os-li-desc">A curated list of companies most likely to employ the right candidate — calibrated to the role requirements and candidate profile patterns.</div></div></li>
+              <li><span class="os-li-marker"></span><div><div class="os-li-name">Adjacent Talent Pools</div><div class="os-li-desc">Non-obvious sourcing channels — adjacent industries, titles, company types — that expand the search without diluting quality.</div></div></li>
+              <li><span class="os-li-marker"></span><div><div class="os-li-name">Boolean Search Strings</div><div class="os-li-desc">Three ready-to-use Boolean strings — core title and skills, adjacent titles, and company-targeted — formatted for LinkedIn Recruiter.</div></div></li>
+              <li><span class="os-li-marker"></span><div><div class="os-li-name">LinkedIn Recruiter Search Recipe</div><div class="os-li-desc">Three fully specified LinkedIn Recruiter searches — title filters, seniority settings, company targets, keyword Booleans, and exclusions — ready to copy directly.</div></div></li>
+              <li><span class="os-li-marker"></span><div><div class="os-li-name">InMail & Outreach Intelligence</div><div class="os-li-desc">What to lead with, what will attract this candidate, what will repel them, a suggested opening line, and what not to say.</div></div></li>
+              <li><span class="os-li-marker"></span><div><div class="os-li-name">Compensation Intelligence</div><div class="os-li-desc">Market range for base, bonus, and equity where available — with positioning guidance for how to present the package.</div></div></li>
+              <li><span class="os-li-marker"></span><div><div class="os-li-name">Search Timeline Recommendation</div><div class="os-li-desc">A phased week-by-week plan from initial sourcing through offer — calibrated to the complexity of the search.</div></div></li>
+              <li><span class="os-li-marker"></span><div><div class="os-li-name">Suggested Next Steps</div><div class="os-li-desc">Specific, prioritized actions for the recruiter to take in the next 48–72 hours to move the search forward.</div></div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="os-output-section">
+          <div class="os-output-header" onclick="osToggle(this)">
+            <div class="os-output-header-left">
+              <span class="os-output-badge blue">Google Doc 2</span>
+              <span class="os-output-title">Screening & Interview Kit</span>
+            </div>
+            <span class="os-output-chevron">⌄</span>
+          </div>
+          <div class="os-output-body">
+            <p class="os-output-intro">The Screening & Interview Kit gives any team member a consistent, role-specific framework for evaluating candidates. No more improvised screening calls.</p>
+            <ul class="os-section-list">
+              <li><span class="os-li-marker blue"></span><div><div class="os-li-name">Candidate Scorecard</div><div class="os-li-desc">A weighted scoring framework with 4–5 evaluation criteria, each assigned a percentage weight that reflects the true priorities of the role.</div></div></li>
+              <li><span class="os-li-marker blue"></span><div><div class="os-li-name">Role-Specific Screening Questions</div><div class="os-li-desc">5–7 questions calibrated to the specific role, level, and competencies — not generic interview questions.</div></div></li>
+              <li><span class="os-li-marker blue"></span><div><div class="os-li-name">Strong & Weak Answer Guides</div><div class="os-li-desc">For each question, a description of what a strong answer looks like and what a weak answer looks like.</div></div></li>
+              <li><span class="os-li-marker blue"></span><div><div class="os-li-name">3-Point Scoring Rubric</div><div class="os-li-desc">A simple Strong / Acceptable / Weak rubric for every question — makes post-interview debriefs faster and candidate comparisons more objective.</div></div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="os-output-section">
+          <div class="os-output-header" onclick="osToggle(this)">
+            <div class="os-output-header-left">
+              <span class="os-output-badge teal">Google Doc 3</span>
+              <span class="os-output-title">Rewritten Job Description</span>
+            </div>
+            <span class="os-output-chevron">⌄</span>
+          </div>
+          <div class="os-output-body">
+            <p class="os-output-intro">Produced when requested at intake. Choose internal format, confidential third-party format, or both.</p>
+            <ul class="os-section-list">
+              <li><span class="os-li-marker"></span><div><div class="os-li-name">Internal Version</div><div class="os-li-desc">An optimized job description for use on the company's own careers page — company name included, structured for clarity and candidate appeal.</div></div></li>
+              <li><span class="os-li-marker"></span><div><div class="os-li-name">Confidential Third-Party Version</div><div class="os-li-desc">A version that protects the client's identity — company name and identifying details removed — for use by recruiters posting on behalf of clients.</div></div></li>
+            </ul>
+            <p style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:12px;line-height:1.6;">Note: The JD Rewrite output is currently being enhanced to deliver more substantial, fully restructured job descriptions.</p>
+          </div>
+        </div>
+
+        <div class="os-output-section">
+          <div class="os-output-header" onclick="osToggle(this)">
+            <div class="os-output-header-left">
+              <span class="os-output-badge teal">Included</span>
+              <span class="os-output-title">Update Search Criteria</span>
+            </div>
+            <span class="os-output-chevron">⌄</span>
+          </div>
+          <div class="os-output-body">
+            <p class="os-output-intro">Included with every Recruiter plan at no extra cost. Submit your Search ID with new inputs and get a fully updated brief.</p>
+            <ul class="os-section-list">
+              <li><span class="os-li-marker"></span><div><div class="os-li-name">Search ID Lookup</div><div class="os-li-desc">Submit your original Search ID with new candidate profiles, revised intake notes, or changed requirements. The system retrieves your original brief and combines it with the new information.</div></div></li>
+              <li><span class="os-li-marker"></span><div><div class="os-li-name">Fully Updated Brief</div><div class="os-li-desc">All three Google Documents are regenerated with the updated inputs — Boolean strings, target companies, screening questions, and outreach intelligence all refreshed.</div></div></li>
+              <li><span class="os-li-marker"></span><div><div class="os-li-name">Update Summary</div><div class="os-li-desc">A clear summary of what changed between the original brief and the updated version.</div></div></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- JOB SEEKER TAB -->
+      <div class="os-tab-panel" id="os-tab-jobseeker">
+
+        <p class="os-p" style="margin-bottom:24px;">
+          The job seeker product delivers <strong>one comprehensive Google Document</strong> — your Application Brief — plus a personal Google Sheets application tracker that grows with every brief you generate.
+        </p>
+
+        <div class="os-output-section open">
+          <div class="os-output-header" onclick="osToggle(this)">
+            <div class="os-output-header-left">
+              <span class="os-output-badge purple">Google Doc</span>
+              <span class="os-output-title">Application Brief</span>
+            </div>
+            <span class="os-output-chevron">⌄</span>
+          </div>
+          <div class="os-output-body">
+            <p class="os-output-intro">The Application Brief replaces hours of manual tailoring with a complete, role-specific intelligence package. The moment you open it, the relief is immediate: this application is not a shot in the dark.</p>
+            <ul class="os-section-list">
+              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Role & Company Header</div><div class="os-li-desc">The title and company name at the top of the brief — your anchor for every section that follows.</div></div></li>
+              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">HireSignal Score</div><div class="os-li-desc">Your match percentage for this specific role — broken down into Skills, Experience, Industry, and Intangibles. Know before you apply whether this role is worth your time.</div></div></li>
+              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">ATS Keyword Analysis</div><div class="os-li-desc">Every keyword the ATS is scanning for — marked as covered, partially covered, or missing from your current resume.</div></div></li>
+              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Tailored Resume Bullets</div><div class="os-li-desc">Role-specific resume bullets written in your voice — calibrated to the language and priorities of this job posting, not copied from a generic library.</div></div></li>
+              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Tailored Professional Summary</div><div class="os-li-desc">A rewritten professional summary that leads with what this hiring manager is looking for — not a generic paragraph about your career.</div></div></li>
+              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Cover Letter</div><div class="os-li-desc">A three-paragraph cover letter that sounds like you — specific to the role, credible in tone, and recruiter-readable.</div></div></li>
+              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">LinkedIn Optimization</div><div class="os-li-desc">Headline rewrites, About section guidance, skills to feature, and a connection strategy — all specific to this role.</div></div></li>
+              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Networking & Application Strategy</div><div class="os-li-desc">A targeted plan for who to reach out to, what to say, and how to approach the search strategically.</div></div></li>
+              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Application Recommendation</div><div class="os-li-desc">A direct recommendation — apply now, apply with these caveats, or reconsider — with specific guidance on how to position yourself.</div></div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="os-output-section">
+          <div class="os-output-header" onclick="osToggle(this)">
+            <div class="os-output-header-left">
+              <span class="os-output-badge purple">Google Sheet</span>
+              <span class="os-output-title">Personal Application Tracker</span>
+            </div>
+            <span class="os-output-chevron">⌄</span>
+          </div>
+          <div class="os-output-body">
+            <p class="os-output-intro">Every brief you generate automatically populates your personal Application Tracker — a Google Sheet that lives in your own Google Drive and grows with your search.</p>
+            <ul class="os-section-list">
+              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Auto-Populated on Every Submission</div><div class="os-li-desc">Each brief adds a new row — role title, company, date, HireSignal Score, and a direct link to your Application Brief Google Doc.</div></div></li>
+              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Application Status Tracking</div><div class="os-li-desc">A dropdown for each role — Applied, Not Applied, Interviewing, Rejected — so you always know where each opportunity stands.</div></div></li>
+              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Your Data, Your Drive</div><div class="os-li-desc">The tracker lives in your personal Google Drive — not inside HireSignalIQ. You own it completely.</div></div></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
     </div>
-    <div class="hsiq-stat">
-      <div class="hsiq-stat-val">100%</div>
-      <div class="hsiq-stat-lbl">Recruiter-informed<br>AI</div>
+  </div>
+
+  <hr class="os-divider">
+
+  <!-- SECTION 6: PRO BONO STORY -->
+  <div class="os-section">
+    <div class="os-eyebrow">
+      <span class="os-eyebrow-dot"></span>
+      The principle behind the product
+      <span class="os-eyebrow-dot"></span>
     </div>
+
+    <h2 class="os-h2">Helping people has always been the job.</h2>
+
+    <p class="os-p">
+      Long before HireSignalIQ existed, Gary was spending hours on the phone with candidates he had no open role for. No placement fee at the end. No business reason to take the call. Just someone navigating a difficult job search who needed a real recruiter's perspective — and Gary giving it to them.
+    </p>
+
+    <p class="os-p">
+      These weren't rare exceptions. They were a consistent thread across his career. Laid-off executives. Career changers. First-time job seekers trying to understand how the process actually works from the other side. Gary would walk through LinkedIn strategies, networking approaches, how to pursue conversations with intention, how to work smarter rather than harder. Candidates were consistently grateful — and consistently puzzled that he wasn't charging for it.
+    </p>
+
+    <div class="os-probono">
+      <p class="os-probono-quote">"They would always ask why I wasn't charging for this. The honest answer was that helping people navigate something complex and come out the other side with a real advantage — that's just what I do."</p>
+      <p class="os-probono-attr">— Gary Bresien, Founder, HireSignalIQ</p>
+    </div>
+
+    <p class="os-p" style="margin-top:24px;">
+      HireSignalIQ is, in part, the answer to that question. The same expertise Gary was giving away for free in phone calls is now inside every output — available to any recruiter or job seeker who needs it, at any hour, for any role, at a price that reflects what it should have cost all along.
+    </p>
+  </div>
+
+  <hr class="os-divider">
+
+  <!-- SECTION 7: CTA -->
+  <div class="os-cta-section">
+    <div class="os-cta-eyebrow">Get started today</div>
+    <h2 class="os-cta-headline">The intelligence is ready.<br>Are you?</h2>
+    <p class="os-cta-sub">Founding member pricing is live. Lock in 50% off permanently — recruiter plan at $49/mo, job seeker plan at $14/mo.</p>
+    <div class="os-cta-buttons">
+      <a href="https://buy.stripe.com/28E7sN51P5Z0cC8cnl6oo03" class="os-btn-primary">
+        I'm a recruiter →
+      </a>
+      <a href="https://buy.stripe.com/9B63cx9i587845C9b96oo00" class="os-btn-secondary">
+        I'm a job seeker →
+      </a>
+    </div>
+    <p class="os-footer-note">No contracts. Cancel anytime. Access continues to end of paid period.<br>Questions? <a href="mailto:hello@hiresignaliq.ai">hello@hiresignaliq.ai</a></p>
   </div>
 
 </div>
 </div>
 
 <script>
-(function() {
-
-  /* ---- CARD STACK ---- */
-  var stackPositions = {
-    back:   { top: 0,   left: 50,  rotate: -6, z: 1, opacity: 0.65 },
-    middle: { top: 90,  left: 58,  rotate:  4, z: 2, opacity: 0.82 },
-    front:  { top: 185, left: 42,  rotate: -2, z: 3, opacity: 1.0  }
-  };
-
-  var stackOrder = ['screening', 'search', 'app'];
-
-  function applyStack() {
-    var slots = ['back', 'middle', 'front'];
-    stackOrder.forEach(function(id, i) {
-      var el = document.getElementById('hsiq-card-' + id);
-      var pos = stackPositions[slots[i]];
-      el.style.top = pos.top + 'px';
-      el.style.left = 'calc(' + pos.left + '% - 145px)';
-      el.style.transform = 'rotate(' + pos.rotate + 'deg)';
-      el.style.zIndex = pos.z;
-      el.style.opacity = pos.opacity;
-    });
+  function toggleMobileNav() {
+    document.getElementById('osMobileNav').classList.toggle('open');
   }
 
-  window.hsiqShow = function(id) {
-    var idx = stackOrder.indexOf(id);
-    if (idx === 2) return;
-    stackOrder.splice(idx, 1);
-    stackOrder.push(id);
-    applyStack();
-    ['app', 'search', 'screening'].forEach(function(key) {
-      document.getElementById('hsiq-btn-' + key).classList.toggle('active', key === id);
-    });
-  };
-
-  applyStack();
-
-  /* ---- NAV INJECTION ---- */
-  var parentDoc = window.parent.document;
-  if (parentDoc.getElementById('hsiq-injected-nav')) return;
-
-  var fontLink = parentDoc.createElement('link');
-  fontLink.rel = 'stylesheet';
-  fontLink.href = 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Lora:wght@600&display=swap';
-  parentDoc.head.appendChild(fontLink);
-
-  var style = parentDoc.createElement('style');
-  style.innerHTML = `
-    #hsiq-injected-nav {
-      position: fixed; top: 0; left: 0; width: 100%; height: 64px;
-      background: #1a2a2a; border-bottom: 1px solid rgba(255,255,255,0.08);
-      z-index: 99999; display: flex; align-items: center;
-      justify-content: space-between; padding: 0 48px;
-      font-family: 'DM Sans', Arial, sans-serif; box-sizing: border-box;
-    }
-    #hsiq-injected-nav a { text-decoration: none; }
-    .hsiq-inj-logo { display: flex; align-items: center; gap: 10px; }
-    .hsiq-inj-monogram {
-      width: 34px; height: 34px; background: #1a9e8f; border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 13px; font-weight: 600; color: #fff;
-      letter-spacing: -0.02em; flex-shrink: 0;
-    }
-    .hsiq-inj-wordmark-wrap { display: flex; flex-direction: column; gap: 1px; }
-    .hsiq-inj-wordmark { font-size: 15px; font-weight: 600; color: #fff; letter-spacing: -0.02em; line-height: 1; }
-    .hsiq-inj-tagline { font-size: 10px; color: #1a9e8f; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; line-height: 1; }
-    .hsiq-inj-links { display: flex; align-items: center; gap: 32px; }
-    .hsiq-inj-link { font-size: 14px; color: rgba(255,255,255,0.6); text-decoration: none; font-weight: 400; cursor: pointer; }
-    .hsiq-inj-link:hover { color: #fff; }
-    .hsiq-inj-cta { background: #1a9e8f; color: #fff !important; font-size: 14px; font-weight: 500; padding: 9px 20px; border-radius: 8px; text-decoration: none; cursor: pointer; }
-    .hsiq-inj-cta:hover { background: #158a7c; }
-    .hsiq-inj-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-    .hsiq-inj-hamburger span { display: block; width: 22px; height: 2px; background: rgba(255,255,255,0.8); border-radius: 2px; }
-    #hsiq-inj-mobile-menu {
-      display: none; position: fixed; top: 64px; left: 0; width: 100%;
-      background: #1a2a2a; border-bottom: 1px solid rgba(255,255,255,0.08);
-      padding: 16px 24px 24px; z-index: 99998;
-      flex-direction: column; gap: 16px; box-sizing: border-box;
-    }
-    #hsiq-inj-mobile-menu.open { display: flex; }
-    #hsiq-inj-mobile-menu a { font-size: 15px; color: rgba(255,255,255,0.7); text-decoration: none; font-weight: 400; padding: 6px 0; cursor: pointer; }
-    #hsiq-inj-mobile-menu .hsiq-inj-cta { text-align: center; margin-top: 4px; padding: 12px 20px; }
-    @media (max-width: 640px) {
-      #hsiq-injected-nav { padding: 0 20px; }
-      .hsiq-inj-links { display: none; }
-      .hsiq-inj-hamburger { display: flex; }
-    }
-  `;
-  parentDoc.head.appendChild(style);
-
-  var nav = parentDoc.createElement('div');
-  nav.id = 'hsiq-injected-nav';
-  nav.innerHTML = `
-    <a href="/" class="hsiq-inj-logo">
-      <div class="hsiq-inj-monogram">hs</div>
-      <div class="hsiq-inj-wordmark-wrap">
-        <span class="hsiq-inj-wordmark">HireSignal<span style="font-family:'Lora',Georgia,serif;font-size:1.08em;font-weight:600;">IQ</span></span>
-        <span class="hsiq-inj-tagline">Built by Recruiters</span>
-      </div>
-    </a>
-    <div class="hsiq-inj-links">
-      <span class="hsiq-inj-link" data-target="how-it-works">How it works</span>
-      <a href="/our-story" class="hsiq-inj-link">Our Story</a>
-      <span class="hsiq-inj-link" data-target="pricing">Pricing</span>
-      <a href="https://buy.stripe.com/28E7sN51P5Z0cC8cnl6oo03" class="hsiq-inj-cta">Get started</a>
-    </div>
-    <button class="hsiq-inj-hamburger" id="hsiq-inj-burger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  `;
-  parentDoc.body.insertBefore(nav, parentDoc.body.firstChild);
-
-  var mobileMenu = parentDoc.createElement('div');
-  mobileMenu.id = 'hsiq-inj-mobile-menu';
-  mobileMenu.innerHTML = `
-    <span class="hsiq-inj-link" data-target="how-it-works">How it works</span>
-    <a href="/our-story" style="font-size:15px;color:rgba(255,255,255,0.7);text-decoration:none;font-weight:400;padding:6px 0;">Our Story</a>
-    <span class="hsiq-inj-link" data-target="pricing">Pricing</span>
-    <a href="https://buy.stripe.com/28E7sN51P5Z0cC8cnl6oo03" class="hsiq-inj-cta">Get started</a>
-  `;
-  parentDoc.body.insertBefore(mobileMenu, parentDoc.body.children[1]);
-
-  function scrollToTarget(targetId) {
-    var el = parentDoc.getElementById(targetId);
-    if (el) {
-      var offset = el.getBoundingClientRect().top + parentDoc.documentElement.scrollTop - 64;
-      parentDoc.documentElement.scrollTo({ top: offset, behavior: 'smooth' });
-      parentDoc.body.scrollTo({ top: offset, behavior: 'smooth' });
-    }
-    parentDoc.getElementById('hsiq-inj-mobile-menu').classList.remove('open');
+  function closeMobileNav() {
+    document.getElementById('osMobileNav').classList.remove('open');
   }
 
-  parentDoc.querySelectorAll('[data-target]').forEach(function(el) {
-    el.addEventListener('click', function() {
-      scrollToTarget(this.getAttribute('data-target'));
+  function osTab(tab) {
+    document.querySelectorAll('.os-tab-btn').forEach(function(btn, i) {
+      btn.classList.toggle('active', (i === 0 && tab === 'recruiter') || (i === 1 && tab === 'jobseeker'));
     });
-  });
+    document.getElementById('os-tab-recruiter').classList.toggle('active', tab === 'recruiter');
+    document.getElementById('os-tab-jobseeker').classList.toggle('active', tab === 'jobseeker');
+  }
 
-  parentDoc.getElementById('hsiq-inj-burger').addEventListener('click', function() {
-    parentDoc.getElementById('hsiq-inj-mobile-menu').classList.toggle('open');
-  });
-
-})();
+  function osToggle(header) {
+    header.parentElement.classList.toggle('open');
+  }
 </script>
+
+</body>
+</html>
