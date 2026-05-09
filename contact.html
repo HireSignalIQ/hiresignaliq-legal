@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — HireSignalIQ</title>
+  <meta name="description" content="Get in touch with the HireSignalIQ team. Questions about your account, your brief, or how the product works — we read every message.">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: #f4f6f5;
+      color: #1a2a2a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: #ffffff;
+      border-bottom: 1px solid #e0e6e5;
+      padding: 0 40px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-monogram {
+      width: 38px;
+      height: 38px;
+      background: #1a9e8f;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 700;
+      color: white;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo-wrap { display: flex; flex-direction: column; }
+
+    .nav-wordmark {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a2a2a;
+      letter-spacing: -0.3px;
+    }
+
+    .nav-wordmark .iq {
+      font-family: 'Lora', Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .nav-sub {
+      font-size: 10px;
+      color: #1a9e8f;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-top: 1px;
+    }
+
+    .page-content {
+      margin-top: 68px;
+      flex: 1;
+      max-width: 680px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 56px 40px 72px;
+    }
+
+    .page-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #1a9e8f;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .page-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: #1a2a2a;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+      line-height: 1.15;
+    }
+
+    .page-sub {
+      font-size: 15px;
+      color: #4a6060;
+      line-height: 1.65;
+      margin-bottom: 40px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #e0e6e5;
+      margin: 0 0 36px;
+    }
+
+    /* PRIMARY CONTACT CARD */
+    .contact-primary {
+      background: #ffffff;
+      border: 1px solid #e0e6e5;
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
+
+    .contact-primary-label {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #1a9e8f;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .contact-email {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a2a2a;
+      letter-spacing: -0.3px;
+      margin-bottom: 8px;
+    }
+
+    .contact-email a {
+      color: #1a2a2a;
+      text-decoration: none;
+      border-bottom: 2px solid #1a9e8f;
+      padding-bottom: 1px;
+    }
+
+    .contact-email a:hover { color: #1a9e8f; }
+
+    .contact-response {
+      font-size: 13px;
+      color: #4a6060;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #1a9e8f;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 11px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      transition: background 0.2s;
+    }
+
+    .contact-btn:hover { background: #158a7c; }
+
+    /* TOPIC CARDS */
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #8aa0a0;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .topic-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+
+    .topic-card {
+      background: #ffffff;
+      border: 1px solid #e0e6e5;
+      border-left: 3px solid #1a9e8f;
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+
+    .topic-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1a2a2a;
+      margin-bottom: 4px;
+    }
+
+    .topic-text {
+      font-size: 12px;
+      color: #4a6060;
+      line-height: 1.55;
+    }
+
+    /* WHAT TO INCLUDE */
+    .include-box {
+      background: #f0faf9;
+      border: 1px solid #d0e8e5;
+      border-left: 3px solid #1a9e8f;
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin-bottom: 36px;
+    }
+
+    .include-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #1a2a2a;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .include-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .include-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 13px;
+      color: #4a6060;
+      line-height: 1.5;
+    }
+
+    .include-dot {
+      width: 5px;
+      height: 5px;
+      background: #1a9e8f;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+
+    /* PROMISE BOX */
+    .promise-box {
+      background: #ffffff;
+      border: 1px solid #e0e6e5;
+      border-radius: 12px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .promise-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .promise-text {
+      font-size: 14px;
+      color: #4a6060;
+      line-height: 1.65;
+    }
+
+    .promise-text strong {
+      color: #1a2a2a;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    footer {
+      background: #ffffff;
+      border-top: 1px solid #e0e6e5;
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-left { font-size: 12px; color: #8aa0a0; }
+    .footer-right { font-size: 12px; color: #8aa0a0; }
+    .footer-right a { color: #1a9e8f; text-decoration: none; }
+    .footer-right a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 20px; }
+      .page-content { padding: 32px 20px 48px; }
+      .topic-grid { grid-template-columns: 1fr; }
+      footer { padding: 16px 20px; flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="https://hiresignaliq.ai" class="nav-logo">
+      <div class="nav-monogram">hs</div>
+      <div class="nav-logo-wrap">
+        <div class="nav-wordmark">HireSignal<span class="iq">IQ</span>®</div>
+        <div class="nav-sub">Built by Recruiters</div>
+      </div>
+    </a>
+  </nav>
+
+  <div class="page-content">
+
+    <p class="page-eyebrow">Contact</p>
+    <h1 class="page-title">We read every message.</h1>
+    <p class="page-sub">HireSignal<span style="font-family:'Lora',Georgia,serif;font-style:italic;font-weight:400;">IQ</span> is built and operated by a single founder. When you email us, a real person reads it and responds — not a support bot, not a ticket queue.</p>
+
+    <hr class="divider">
+
+    <!-- PRIMARY CONTACT -->
+    <div class="contact-primary">
+      <p class="contact-primary-label">Email us directly</p>
+      <p class="contact-email"><a href="mailto:hello@hiresignaliq.ai">hello@hiresignaliq.ai</a></p>
+      <p class="contact-response">We respond to all inquiries within one business day. For urgent output delivery issues, include your Search ID or Access ID in the subject line for fastest resolution.</p>
+      <a href="mailto:hello@hiresignaliq.ai" class="contact-btn">Send us an email →</a>
+    </div>
+
+    <!-- TOPIC CARDS -->
+    <p class="section-label" style="margin-top: 32px;">What we can help with</p>
+    <div class="topic-grid">
+      <div class="topic-card">
+        <p class="topic-title">Output & Delivery</p>
+        <p class="topic-text">Brief not arrived, Google Doc issues, missing documents, or output quality questions.</p>
+      </div>
+      <div class="topic-card">
+        <p class="topic-title">Account & Billing</p>
+        <p class="topic-text">Subscription questions, cancellation, founding member pricing, or invoice requests.</p>
+      </div>
+      <div class="topic-card">
+        <p class="topic-title">Search ID Help</p>
+        <p class="topic-text">Can't locate your Search ID or Access ID — we'll look it up and send it to you.</p>
+      </div>
+      <div class="topic-card">
+        <p class="topic-title">Product Feedback</p>
+        <p class="topic-text">Feature requests, output suggestions, or anything that would make HireSignal<span style="font-family:'Lora',Georgia,serif;font-style:italic;font-weight:400;">IQ</span> more useful for your workflow.</p>
+      </div>
+    </div>
+
+    <!-- WHAT TO INCLUDE -->
+    <div class="include-box">
+      <p class="include-title">To help us respond faster, include:</p>
+      <ul class="include-list">
+        <li><div class="include-dot"></div>Your name and the email address used to subscribe</li>
+        <li><div class="include-dot"></div>Your Search ID or Access ID if your question relates to a specific submission</li>
+        <li><div class="include-dot"></div>A brief description of what you submitted and what you expected to receive</li>
+      </ul>
+    </div>
+
+    <!-- PROMISE -->
+    <div class="promise-box">
+      <div class="promise-icon">🎯</div>
+      <div class="promise-text">
+        <strong>Our commitment to you</strong>
+        HireSignal<span style="font-family:'Lora',Georgia,serif;font-style:italic;font-weight:400;">IQ</span> was built on the belief that recruiting intelligence should be transparent, high-quality, and backed by real expertise. That same standard applies to how we handle support. If something isn't right, we'll make it right.
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-left">© 2026 HireSignal<span style="font-family:'Lora',Georgia,serif;font-style:italic;font-weight:400;">IQ</span>. All rights reserved.</div>
+    <div class="footer-right">
+      <a href="https://hiresignaliq.github.io/hiresignaliq-legal/privacy-policy-page_1.html">Privacy</a>
+      &nbsp;·&nbsp;
+      <a href="https://hiresignaliq.github.io/hiresignaliq-legal/terms-of-service-page_1.html">Terms</a>
+      &nbsp;·&nbsp;
+      <a href="mailto:hello@hiresignaliq.ai">Contact</a>
+    </div>
+  </footer>
+
+</body>
+</html>
