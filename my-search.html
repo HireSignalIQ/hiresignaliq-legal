@@ -11,26 +11,24 @@
 
     body {
       font-family: 'Helvetica Neue', Arial, sans-serif;
-      background: #1a2a2a;
-      color: #ffffff;
+      background: #f4f6f5;
+      color: #1a2a2a;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
-    /* NAV */
     nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       z-index: 100;
-      background: #1a2a2a;
-      border-bottom: 1px solid rgba(26, 158, 143, 0.2);
+      background: #ffffff;
+      border-bottom: 1px solid #e0e6e5;
       padding: 0 40px;
       height: 68px;
       display: flex;
       align-items: center;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
     }
 
     .nav-logo {
@@ -54,16 +52,13 @@
       letter-spacing: -0.5px;
     }
 
+    .nav-logo-wrap { display: flex; flex-direction: column; }
+
     .nav-wordmark {
       font-size: 15px;
       font-weight: 700;
-      color: #ffffff;
+      color: #1a2a2a;
       letter-spacing: -0.3px;
-    }
-
-    .nav-wordmark span {
-      font-family: 'Georgia', serif;
-      font-style: italic;
     }
 
     .nav-sub {
@@ -74,75 +69,72 @@
       margin-top: 1px;
     }
 
-    .nav-logo-wrap {
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* MAIN CONTENT */
+    /* PAGE CONTENT */
     .page-content {
       margin-top: 68px;
       flex: 1;
-      max-width: 800px;
+      max-width: 820px;
       width: 100%;
       margin-left: auto;
       margin-right: auto;
       padding: 48px 40px 64px;
     }
 
-    /* PAGE HEADER */
     .page-eyebrow {
       font-size: 11px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: #1a9e8f;
       margin-bottom: 10px;
+      font-weight: 600;
     }
 
     .page-title {
       font-size: 32px;
       font-weight: 700;
-      color: #ffffff;
+      color: #1a2a2a;
       letter-spacing: -0.5px;
       margin-bottom: 12px;
       line-height: 1.15;
     }
 
     .page-sub {
-      font-size: 16px;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.6;
+      font-size: 15px;
+      color: #4a6060;
+      line-height: 1.65;
       max-width: 580px;
-      margin-bottom: 40px;
+      margin-bottom: 36px;
     }
 
-    /* DIVIDER */
     .divider {
       border: none;
-      border-top: 1px solid rgba(26, 158, 143, 0.2);
-      margin: 0 0 36px;
+      border-top: 1px solid #e0e6e5;
+      margin: 0 0 32px;
     }
 
-    /* WHEN TO USE */
+    /* SECTION LABELS */
     .section-label {
       font-size: 10px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
-      margin-bottom: 16px;
+      color: #8aa0a0;
+      margin-bottom: 14px;
+      font-weight: 600;
     }
 
+    /* WHEN TO USE GRID */
     .use-case-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
-      margin-bottom: 36px;
+      margin-bottom: 32px;
     }
 
     .use-case-card {
-      background: rgba(26, 158, 143, 0.08);
-      border: 1px solid rgba(26, 158, 143, 0.2);
-      border-radius: 10px;
+      background: #ffffff;
+      border: 1px solid #e0e6e5;
+      border-left: 3px solid #1a9e8f;
+      border-radius: 8px;
       padding: 14px 16px;
       display: flex;
       align-items: flex-start;
@@ -160,17 +152,17 @@
 
     .use-case-text {
       font-size: 13px;
-      color: rgba(255,255,255,0.75);
-      line-height: 1.5;
+      color: #1a2a2a;
+      line-height: 1.55;
     }
 
-    /* WHAT YOU'LL NEED */
+    /* NEEDS LIST */
     .needs-list {
       list-style: none;
-      margin-bottom: 36px;
+      margin-bottom: 32px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
     }
 
     .needs-list li {
@@ -178,50 +170,48 @@
       align-items: flex-start;
       gap: 12px;
       font-size: 14px;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.5;
+      color: #4a6060;
+      line-height: 1.55;
+      background: #ffffff;
+      border: 1px solid #e0e6e5;
+      border-radius: 8px;
+      padding: 14px 16px;
     }
 
     .needs-list li strong {
-      color: #ffffff;
+      color: #1a2a2a;
       font-weight: 600;
     }
 
     .needs-icon {
-      width: 22px;
-      height: 22px;
-      background: rgba(26, 158, 143, 0.15);
-      border: 1px solid rgba(26, 158, 143, 0.3);
+      width: 24px;
+      height: 24px;
+      background: #1a9e8f;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
       font-size: 11px;
-      color: #1a9e8f;
+      color: white;
       font-weight: 700;
       margin-top: 1px;
     }
 
-    /* HOW IT WORKS */
+    /* STEPS */
     .steps {
       display: flex;
       flex-direction: column;
-      gap: 0;
-      margin-bottom: 36px;
-      position: relative;
+      margin-bottom: 32px;
     }
 
     .step {
       display: flex;
       gap: 16px;
-      position: relative;
       padding-bottom: 24px;
     }
 
-    .step:last-child {
-      padding-bottom: 0;
-    }
+    .step:last-child { padding-bottom: 0; }
 
     .step-left {
       display: flex;
@@ -241,52 +231,47 @@
       font-size: 12px;
       font-weight: 700;
       color: white;
-      flex-shrink: 0;
     }
 
     .step-line {
       width: 1px;
       flex: 1;
-      background: rgba(26, 158, 143, 0.2);
+      background: #e0e6e5;
       margin-top: 6px;
     }
 
-    .step:last-child .step-line {
-      display: none;
-    }
+    .step:last-child .step-line { display: none; }
 
-    .step-content {
-      padding-top: 4px;
-    }
+    .step-content { padding-top: 4px; }
 
     .step-title {
       font-size: 14px;
       font-weight: 600;
-      color: #ffffff;
+      color: #1a2a2a;
       margin-bottom: 4px;
     }
 
     .step-desc {
       font-size: 13px;
-      color: rgba(255,255,255,0.55);
-      line-height: 1.5;
+      color: #4a6060;
+      line-height: 1.55;
     }
 
     /* SEARCH ID CALLOUT */
     .search-id-callout {
-      background: rgba(26, 158, 143, 0.1);
-      border: 1px solid rgba(26, 158, 143, 0.25);
+      background: #f0faf9;
+      border: 1px solid #d0e8e5;
       border-left: 3px solid #1a9e8f;
       border-radius: 8px;
       padding: 16px 18px;
-      margin-bottom: 36px;
+      margin-bottom: 32px;
       font-size: 13px;
-      color: rgba(255,255,255,0.7);
+      color: #4a6060;
       line-height: 1.6;
     }
 
     .search-id-callout strong {
-      color: #ffffff;
+      color: #1a2a2a;
       display: block;
       margin-bottom: 4px;
       font-size: 13px;
@@ -297,52 +282,46 @@
       text-decoration: none;
     }
 
-    .search-id-callout a:hover {
-      text-decoration: underline;
-    }
+    .search-id-callout a:hover { text-decoration: underline; }
 
-    /* FORM SECTION */
+    /* FORM */
     .form-section-label {
       font-size: 11px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: #1a9e8f;
-      margin-bottom: 16px;
-      padding-top: 4px;
+      margin-bottom: 14px;
+      font-weight: 600;
     }
 
     .form-wrapper {
-      border: 1px solid rgba(26, 158, 143, 0.2);
+      background: #ffffff;
+      border: 1px solid #e0e6e5;
       border-radius: 12px;
       overflow: hidden;
-      background: rgba(255,255,255,0.02);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      min-height: 1000px;
+      border: none;
     }
 
     /* FOOTER */
     footer {
-      background: #0f1e1e;
-      border-top: 1px solid rgba(26, 158, 143, 0.15);
+      background: #ffffff;
+      border-top: 1px solid #e0e6e5;
       padding: 16px 40px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
-    .footer-left {
-      font-size: 12px;
-      color: rgba(255,255,255,0.3);
-    }
-
-    .footer-right {
-      font-size: 12px;
-      color: rgba(255,255,255,0.3);
-    }
-
-    .footer-right a {
-      color: #1a9e8f;
-      text-decoration: none;
-    }
-
+    .footer-left { font-size: 12px; color: #8aa0a0; }
+    .footer-right { font-size: 12px; color: #8aa0a0; }
+    .footer-right a { color: #1a9e8f; text-decoration: none; }
     .footer-right a:hover { text-decoration: underline; }
 
     @media (max-width: 600px) {
@@ -359,7 +338,7 @@
     <a href="https://hiresignaliq.ai" class="nav-logo">
       <div class="nav-monogram">hs</div>
       <div class="nav-logo-wrap">
-        <div class="nav-wordmark">HireSignalIQ<span>®</span></div>
+        <div class="nav-wordmark">HireSignalIQ®</div>
         <div class="nav-sub">Built by Recruiters</div>
       </div>
     </a>
@@ -373,7 +352,6 @@
 
     <hr class="divider">
 
-    <!-- WHEN TO USE -->
     <p class="section-label">When to use this</p>
     <div class="use-case-grid">
       <div class="use-case-card">
@@ -394,12 +372,11 @@
       </div>
     </div>
 
-    <!-- WHAT YOU'LL NEED -->
     <p class="section-label">What you'll need</p>
     <ul class="needs-list">
       <li>
         <div class="needs-icon">1</div>
-        <div><strong>Your Search ID</strong> — found in the subject line of your original output delivery email. It looks like: <em>Search ID: [unique code]</em></div>
+        <div><strong>Your Search ID</strong> — found in the subject line of your original output delivery email. It looks like: Search ID: [unique code]</div>
       </li>
       <li>
         <div class="needs-icon">2</div>
@@ -411,7 +388,6 @@
       </li>
     </ul>
 
-    <!-- HOW IT WORKS -->
     <p class="section-label">How it works</p>
     <div class="steps">
       <div class="step">
@@ -446,16 +422,14 @@
       </div>
     </div>
 
-    <!-- SEARCH ID CALLOUT -->
     <div class="search-id-callout">
       <strong>Can't find your Search ID?</strong>
-      Check the subject line of your original output delivery email — it will read: <em>HireSignalIQ Search Brief — [Role] | Search ID: [code]</em>. If you can't locate it, email us at <a href="mailto:hello@hiresignaliq.ai">hello@hiresignaliq.ai</a> and we'll look it up for you.
+      Check the subject line of your original output delivery email — it reads: HireSignalIQ Search Brief — [Role] | Search ID: [code]. If you can't locate it, email us at <a href="mailto:hello@hiresignaliq.ai">hello@hiresignaliq.ai</a> and we'll look it up for you.
     </div>
 
-    <!-- FORM -->
     <p class="form-section-label">Submit your update below</p>
     <div class="form-wrapper">
-      <iframe data-tally-src="https://tally.so/embed/eq9AV0?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0" title="HireSignalIQ — Update Search Criteria"></iframe>
+      <iframe data-tally-src="https://tally.so/embed/eq9AV0?alignLeft=1&hideTitle=1&dynamicHeight=1" loading="lazy" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0" title="HireSignalIQ — Update Search Criteria"></iframe>
     </div>
     <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s);}</script>
 
