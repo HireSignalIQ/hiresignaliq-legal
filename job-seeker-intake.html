@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>HireSignalIQ — Job Seeker Intake</title>
+  <script async src="https://tally.so/widgets/embed.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: #1a2a2a;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: #1a2a2a;
+      border-bottom: 1px solid rgba(26, 158, 143, 0.2);
+      padding: 0 40px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-monogram {
+      width: 38px;
+      height: 38px;
+      background: #1a9e8f;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 700;
+      color: white;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-wordmark {
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.3px;
+    }
+
+    .nav-wordmark span {
+      font-family: 'Georgia', serif;
+      font-style: italic;
+    }
+
+    .nav-sub {
+      font-size: 10px;
+      color: #1a9e8f;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-top: 1px;
+    }
+
+    .nav-logo-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .intake-header {
+      margin-top: 68px;
+      background: linear-gradient(135deg, #1a2a2a 0%, #0f1e1e 100%);
+      border-bottom: 1px solid rgba(26, 158, 143, 0.2);
+      padding: 28px 40px 24px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .header-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #1a9e8f;
+      margin-bottom: 6px;
+    }
+
+    .header-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .header-sub {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.5;
+      max-width: 480px;
+    }
+
+    .header-badge {
+      background: rgba(26, 158, 143, 0.15);
+      border: 1px solid rgba(26, 158, 143, 0.3);
+      border-radius: 8px;
+      padding: 12px 16px;
+      text-align: right;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .badge-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #1a9e8f;
+      margin-bottom: 2px;
+    }
+
+    .badge-value {
+      font-size: 13px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .reassurance-bar {
+      background: rgba(26, 158, 143, 0.08);
+      border-bottom: 1px solid rgba(26, 158, 143, 0.15);
+      padding: 12px 40px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .reassurance-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .reassurance-dot {
+      width: 6px;
+      height: 6px;
+      background: #1a9e8f;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .form-container {
+      flex: 1;
+      width: 100%;
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      min-height: calc(100vh - 68px - 89px - 45px);
+      border: none;
+    }
+
+    footer {
+      background: #0f1e1e;
+      border-top: 1px solid rgba(26, 158, 143, 0.15);
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-left {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .footer-right {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .footer-right a {
+      color: #1a9e8f;
+      text-decoration: none;
+    }
+
+    .footer-right a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 20px; }
+      .intake-header { padding: 20px; flex-direction: column; }
+      .header-badge { text-align: left; }
+      .reassurance-bar { padding: 12px 20px; gap: 16px; }
+      footer { padding: 16px 20px; flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="https://hiresignaliq.ai" class="nav-logo">
+      <div class="nav-monogram">hs</div>
+      <div class="nav-logo-wrap">
+        <div class="nav-wordmark">HireSignalIQ<span>®</span></div>
+        <div class="nav-sub">Built by Recruiters</div>
+      </div>
+    </a>
+  </nav>
+
+  <div class="intake-header">
+    <div class="header-left">
+      <p class="header-eyebrow">Job Seeker Intake</p>
+      <h1 class="header-title">You're in. Let's build your application brief.</h1>
+      <p class="header-sub">Complete your intake below. Your HireSignal Score, ATS-optimized resume bullets, cover letter, LinkedIn optimization, and application strategy will be in your inbox within minutes.</p>
+    </div>
+    <div class="header-badge">
+      <p class="badge-label">Output delivery</p>
+      <p class="badge-value">Within minutes</p>
+    </div>
+  </div>
+
+  <div class="reassurance-bar">
+    <div class="reassurance-item"><div class="reassurance-dot"></div>All fields marked optional can be skipped</div>
+    <div class="reassurance-item"><div class="reassurance-dot"></div>The more you provide, the sharper your output</div>
+    <div class="reassurance-item"><div class="reassurance-dot"></div>Your brief will be saved to your personal Google Drive folder</div>
+    <div class="reassurance-item"><div class="reassurance-dot"></div>Questions? hello@hiresignaliq.ai</div>
+  </div>
+
+  <div class="form-container">
+    <iframe data-tally-src="https://tally.so/r/WOlore?transparentBackground=1" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="HireSignalIQ — Job Seeker Intake"></iframe>
+  </div>
+
+  <footer>
+    <div class="footer-left">© 2026 HireSignalIQ. All rights reserved.</div>
+    <div class="footer-right">
+      <a href="https://hiresignaliq.github.io/hiresignaliq-legal/privacy-policy-page_1.html">Privacy</a>
+      &nbsp;·&nbsp;
+      <a href="https://hiresignaliq.github.io/hiresignaliq-legal/terms-of-service-page_1.html">Terms</a>
+      &nbsp;·&nbsp;
+      <a href="mailto:hello@hiresignaliq.ai">Contact</a>
+    </div>
+  </footer>
+
+</body>
+</html>
