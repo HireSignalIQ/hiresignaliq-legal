@@ -1,0 +1,476 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HireSignalIQ — Update Your Search Criteria</title>
+  <script async src="https://tally.so/widgets/embed.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: #1a2a2a;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: #1a2a2a;
+      border-bottom: 1px solid rgba(26, 158, 143, 0.2);
+      padding: 0 40px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-monogram {
+      width: 38px;
+      height: 38px;
+      background: #1a9e8f;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 700;
+      color: white;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-wordmark {
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.3px;
+    }
+
+    .nav-wordmark span {
+      font-family: 'Georgia', serif;
+      font-style: italic;
+    }
+
+    .nav-sub {
+      font-size: 10px;
+      color: #1a9e8f;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-top: 1px;
+    }
+
+    .nav-logo-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* MAIN CONTENT */
+    .page-content {
+      margin-top: 68px;
+      flex: 1;
+      max-width: 800px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 48px 40px 64px;
+    }
+
+    /* PAGE HEADER */
+    .page-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #1a9e8f;
+      margin-bottom: 10px;
+    }
+
+    .page-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+      line-height: 1.15;
+    }
+
+    .page-sub {
+      font-size: 16px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+      max-width: 580px;
+      margin-bottom: 40px;
+    }
+
+    /* DIVIDER */
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(26, 158, 143, 0.2);
+      margin: 0 0 36px;
+    }
+
+    /* WHEN TO USE */
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 16px;
+    }
+
+    .use-case-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+
+    .use-case-card {
+      background: rgba(26, 158, 143, 0.08);
+      border: 1px solid rgba(26, 158, 143, 0.2);
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .use-case-dot {
+      width: 6px;
+      height: 6px;
+      background: #1a9e8f;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+
+    .use-case-text {
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.5;
+    }
+
+    /* WHAT YOU'LL NEED */
+    .needs-list {
+      list-style: none;
+      margin-bottom: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .needs-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.5;
+    }
+
+    .needs-list li strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .needs-icon {
+      width: 22px;
+      height: 22px;
+      background: rgba(26, 158, 143, 0.15);
+      border: 1px solid rgba(26, 158, 143, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 11px;
+      color: #1a9e8f;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+
+    /* HOW IT WORKS */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: 36px;
+      position: relative;
+    }
+
+    .step {
+      display: flex;
+      gap: 16px;
+      position: relative;
+      padding-bottom: 24px;
+    }
+
+    .step:last-child {
+      padding-bottom: 0;
+    }
+
+    .step-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .step-num {
+      width: 28px;
+      height: 28px;
+      background: #1a9e8f;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .step-line {
+      width: 1px;
+      flex: 1;
+      background: rgba(26, 158, 143, 0.2);
+      margin-top: 6px;
+    }
+
+    .step:last-child .step-line {
+      display: none;
+    }
+
+    .step-content {
+      padding-top: 4px;
+    }
+
+    .step-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .step-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+    }
+
+    /* SEARCH ID CALLOUT */
+    .search-id-callout {
+      background: rgba(26, 158, 143, 0.1);
+      border: 1px solid rgba(26, 158, 143, 0.25);
+      border-left: 3px solid #1a9e8f;
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin-bottom: 36px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+    }
+
+    .search-id-callout strong {
+      color: #ffffff;
+      display: block;
+      margin-bottom: 4px;
+      font-size: 13px;
+    }
+
+    .search-id-callout a {
+      color: #1a9e8f;
+      text-decoration: none;
+    }
+
+    .search-id-callout a:hover {
+      text-decoration: underline;
+    }
+
+    /* FORM SECTION */
+    .form-section-label {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #1a9e8f;
+      margin-bottom: 16px;
+      padding-top: 4px;
+    }
+
+    .form-wrapper {
+      border: 1px solid rgba(26, 158, 143, 0.2);
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.02);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0f1e1e;
+      border-top: 1px solid rgba(26, 158, 143, 0.15);
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-left {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .footer-right {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .footer-right a {
+      color: #1a9e8f;
+      text-decoration: none;
+    }
+
+    .footer-right a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 20px; }
+      .page-content { padding: 32px 20px 48px; }
+      .use-case-grid { grid-template-columns: 1fr; }
+      footer { padding: 16px 20px; flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="https://hiresignaliq.ai" class="nav-logo">
+      <div class="nav-monogram">hs</div>
+      <div class="nav-logo-wrap">
+        <div class="nav-wordmark">HireSignalIQ<span>®</span></div>
+        <div class="nav-sub">Built by Recruiters</div>
+      </div>
+    </a>
+  </nav>
+
+  <div class="page-content">
+
+    <p class="page-eyebrow">Recruiter Portal</p>
+    <h1 class="page-title">Update Your Search Criteria</h1>
+    <p class="page-sub">Use this page to submit updated inputs for an active search. Your original brief will be recalibrated and three refreshed Google Docs delivered to your inbox within minutes.</p>
+
+    <hr class="divider">
+
+    <!-- WHEN TO USE -->
+    <p class="section-label">When to use this</p>
+    <div class="use-case-grid">
+      <div class="use-case-card">
+        <div class="use-case-dot"></div>
+        <p class="use-case-text">Your hiring manager has changed priorities or added new requirements since your original brief</p>
+      </div>
+      <div class="use-case-card">
+        <div class="use-case-dot"></div>
+        <p class="use-case-text">You've received candidate feedback that sharpens what you're actually looking for</p>
+      </div>
+      <div class="use-case-card">
+        <div class="use-case-dot"></div>
+        <p class="use-case-text">You have new ideal candidate profiles to add that will sharpen your Boolean strings and target companies</p>
+      </div>
+      <div class="use-case-card">
+        <div class="use-case-dot"></div>
+        <p class="use-case-text">Your search has stalled and you want to recalibrate your strategy with fresh inputs</p>
+      </div>
+    </div>
+
+    <!-- WHAT YOU'LL NEED -->
+    <p class="section-label">What you'll need</p>
+    <ul class="needs-list">
+      <li>
+        <div class="needs-icon">1</div>
+        <div><strong>Your Search ID</strong> — found in the subject line of your original output delivery email. It looks like: <em>Search ID: [unique code]</em></div>
+      </li>
+      <li>
+        <div class="needs-icon">2</div>
+        <div><strong>Updated inputs</strong> — revised job description, new hiring manager notes, additional candidate profiles, or any combination of the above</div>
+      </li>
+      <li>
+        <div class="needs-icon">3</div>
+        <div><strong>A note on what changed</strong> — a brief description of what's different helps the AI understand what to recalibrate vs. what to preserve from your original brief</div>
+      </li>
+    </ul>
+
+    <!-- HOW IT WORKS -->
+    <p class="section-label">How it works</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-left">
+          <div class="step-num">1</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <p class="step-title">Enter your Search ID</p>
+          <p class="step-desc">This connects your update to your original search so HireSignalIQ can combine your new inputs with your original brief.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left">
+          <div class="step-num">2</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <p class="step-title">Submit your updated inputs</p>
+          <p class="step-desc">Paste your new notes, revised JD, or additional candidate profiles. Only include what has changed — your original inputs are already on file.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-left">
+          <div class="step-num">3</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <p class="step-title">Receive your updated brief</p>
+          <p class="step-desc">Three refreshed Google Docs arrive in your inbox within minutes — Search Brief, Screening Kit, and Rewritten JD — with a summary of what changed.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEARCH ID CALLOUT -->
+    <div class="search-id-callout">
+      <strong>Can't find your Search ID?</strong>
+      Check the subject line of your original output delivery email — it will read: <em>HireSignalIQ Search Brief — [Role] | Search ID: [code]</em>. If you can't locate it, email us at <a href="mailto:hello@hiresignaliq.ai">hello@hiresignaliq.ai</a> and we'll look it up for you.
+    </div>
+
+    <!-- FORM -->
+    <p class="form-section-label">Submit your update below</p>
+    <div class="form-wrapper">
+      <iframe data-tally-src="https://tally.so/embed/eq9AV0?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0" title="HireSignalIQ — Update Search Criteria"></iframe>
+    </div>
+    <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s);}</script>
+
+  </div>
+
+  <footer>
+    <div class="footer-left">© 2026 HireSignalIQ. All rights reserved.</div>
+    <div class="footer-right">
+      <a href="https://hiresignaliq.github.io/hiresignaliq-legal/privacy-policy-page_1.html">Privacy</a>
+      &nbsp;·&nbsp;
+      <a href="https://hiresignaliq.github.io/hiresignaliq-legal/terms-of-service-page_1.html">Terms</a>
+      &nbsp;·&nbsp;
+      <a href="mailto:hello@hiresignaliq.ai">Contact</a>
+    </div>
+  </footer>
+
+</body>
+</html>
