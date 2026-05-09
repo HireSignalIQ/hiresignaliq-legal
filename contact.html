@@ -136,22 +136,15 @@
       margin-bottom: 8px;
     }
 
-    .contact-email {
+    .contact-email-display {
       font-size: 22px;
       font-weight: 700;
       color: #1a2a2a;
       letter-spacing: -0.3px;
       margin-bottom: 8px;
+      user-select: all;
+      cursor: text;
     }
-
-    .contact-email a {
-      color: #1a2a2a;
-      text-decoration: none;
-      border-bottom: 2px solid #1a9e8f;
-      padding-bottom: 1px;
-    }
-
-    .contact-email a:hover { color: #1a9e8f; }
 
     .contact-response {
       font-size: 13px;
@@ -160,7 +153,14 @@
       margin-bottom: 20px;
     }
 
-    .contact-btn {
+    .contact-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .contact-btn-primary {
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -173,9 +173,37 @@
       text-decoration: none;
       font-family: 'Helvetica Neue', Arial, sans-serif;
       transition: background 0.2s;
+      cursor: pointer;
+      border: none;
     }
 
-    .contact-btn:hover { background: #158a7c; }
+    .contact-btn-primary:hover { background: #158a7c; }
+
+    .contact-btn-copy {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      color: #1a9e8f;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: 1px solid #1a9e8f;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .contact-btn-copy:hover { background: #f0faf9; }
+    .contact-btn-copy.copied { background: #f0faf9; color: #1a7a6e; border-color: #1a7a6e; }
+
+    .contact-fallback {
+      font-size: 12px;
+      color: #8aa0a0;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
 
     /* TOPIC CARDS */
     .section-label {
@@ -270,11 +298,7 @@
       gap: 14px;
     }
 
-    .promise-icon {
-      font-size: 20px;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
+    .promise-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
 
     .promise-text {
       font-size: 14px;
@@ -334,9 +358,13 @@
     <!-- PRIMARY CONTACT -->
     <div class="contact-primary">
       <p class="contact-primary-label">Email us directly</p>
-      <p class="contact-email"><a href="mailto:hello@hiresignaliq.ai">hello@hiresignaliq.ai</a></p>
+      <p class="contact-email-display" id="emailAddress">hello@hiresignaliq.ai</p>
       <p class="contact-response">We respond to all inquiries within one business day. For urgent output delivery issues, include your Search ID or Access ID in the subject line for fastest resolution.</p>
-      <a href="mailto:hello@hiresignaliq.ai" class="contact-btn">Send us an email →</a>
+      <div class="contact-actions">
+        <a href="mailto:hello@hiresignaliq.ai" class="contact-btn-primary">Open in email app →</a>
+        <button class="contact-btn-copy" id="copyBtn" onclick="copyEmail()">Copy address</button>
+      </div>
+      <p class="contact-fallback">No default email app configured? Copy the address above and paste it into Gmail, Outlook, or wherever you manage your email.</p>
     </div>
 
     <!-- TOPIC CARDS -->
@@ -388,9 +416,39 @@
       &nbsp;·&nbsp;
       <a href="https://hiresignaliq.github.io/hiresignaliq-legal/terms-of-service-page_1.html">Terms</a>
       &nbsp;·&nbsp;
-      <a href="mailto:hello@hiresignaliq.ai">Contact</a>
+      <a href="https://hiresignaliq.github.io/hiresignaliq-legal/contact.html">Contact</a>
     </div>
   </footer>
+
+  <script>
+    function copyEmail() {
+      var email = 'hello@hiresignaliq.ai';
+      var btn = document.getElementById('copyBtn');
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(function() {
+          btn.textContent = '✓ Copied';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = 'Copy address';
+            btn.classList.remove('copied');
+          }, 2500);
+        });
+      } else {
+        var el = document.createElement('textarea');
+        el.value = email;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        btn.textContent = '✓ Copied';
+        btn.classList.add('copied');
+        setTimeout(function() {
+          btn.textContent = 'Copy address';
+          btn.classList.remove('copied');
+        }, 2500);
+      }
+    }
+  </script>
 
 </body>
 </html>
