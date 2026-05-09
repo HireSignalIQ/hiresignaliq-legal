@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <title>HireSignalIQ — Job Seeker Intake</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap" rel="stylesheet">
   <script async src="https://tally.so/widgets/embed.js"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -59,6 +60,12 @@
       font-weight: 700;
       color: #1a2a2a;
       letter-spacing: -0.3px;
+    }
+
+    .nav-wordmark .iq {
+      font-family: 'Lora', Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
     }
 
     .nav-sub {
@@ -155,11 +162,47 @@
       flex-shrink: 0;
     }
 
+    /* INSTRUCTIONS */
+    .instructions {
+      max-width: 760px;
+      margin: 32px auto 0;
+      padding: 0 40px;
+    }
+
+    .instructions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .instruction-card {
+      background: #ffffff;
+      border: 1px solid #e0e6e5;
+      border-left: 3px solid #1a9e8f;
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+
+    .instruction-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #1a2a2a;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .instruction-text {
+      font-size: 13px;
+      color: #4a6060;
+      line-height: 1.55;
+    }
+
     .form-container {
-      flex: 1;
       width: 100%;
       background: #f4f6f5;
-      padding: 32px 40px 48px;
+      padding: 24px 40px 48px;
     }
 
     .form-inner {
@@ -170,6 +213,12 @@
       border: 1px solid #e0e6e5;
       overflow: hidden;
       box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
+
+    .form-gradient-header {
+      height: 90px;
+      background: linear-gradient(to bottom, #1a2a2a 0%, #1a9e8f 100%);
+      width: 100%;
     }
 
     iframe {
@@ -198,6 +247,8 @@
       .intake-header { padding: 20px; flex-direction: column; }
       .header-badge { text-align: left; }
       .reassurance-bar { padding: 10px 20px; gap: 12px; }
+      .instructions { padding: 0 20px; }
+      .instructions-grid { grid-template-columns: 1fr; }
       .form-container { padding: 20px; }
       footer { padding: 16px 20px; flex-direction: column; gap: 8px; text-align: center; }
     }
@@ -209,7 +260,7 @@
     <a href="https://hiresignaliq.ai" class="nav-logo">
       <div class="nav-monogram">hs</div>
       <div class="nav-logo-wrap">
-        <div class="nav-wordmark">HireSignalIQ®</div>
+        <div class="nav-wordmark">HireSignal<span class="iq">IQ</span>®</div>
         <div class="nav-sub">Built by Recruiters</div>
       </div>
     </a>
@@ -234,8 +285,30 @@
     <div class="reassurance-item"><div class="reassurance-dot"></div>Questions? hello@hiresignaliq.ai</div>
   </div>
 
+  <div class="instructions">
+    <div class="instructions-grid">
+      <div class="instruction-card">
+        <p class="instruction-title">Job Posting</p>
+        <p class="instruction-text">Paste the full job posting text. Include the role title, company name, and all requirements. The more complete the posting, the more precise your ATS keyword analysis and resume bullets will be.</p>
+      </div>
+      <div class="instruction-card">
+        <p class="instruction-title">Your Resume</p>
+        <p class="instruction-text">Paste your current resume as plain text. Don't worry about formatting — focus on content. This is what HireSignalIQ uses to calculate your HireSignal Score and write tailored bullets in your voice.</p>
+      </div>
+      <div class="instruction-card">
+        <p class="instruction-title">LinkedIn Profile</p>
+        <p class="instruction-text">Paste your current LinkedIn About section, headline, and any sections you want optimized. Optional — but including it unlocks the LinkedIn optimization section of your brief.</p>
+      </div>
+      <div class="instruction-card">
+        <p class="instruction-title">Target Details</p>
+        <p class="instruction-text">Include your target location(s) and compensation range. This shapes your networking plan and application recommendation — and helps the AI flag any fit gaps before you apply.</p>
+      </div>
+    </div>
+  </div>
+
   <div class="form-container">
     <div class="form-inner">
+      <div class="form-gradient-header"></div>
       <iframe data-tally-src="https://tally.so/r/WOlore" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="HireSignalIQ — Job Seeker Intake"></iframe>
     </div>
   </div>
