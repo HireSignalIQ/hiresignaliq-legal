@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HireSignalIQ — Update Your Search Criteria</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap" rel="stylesheet">
   <script async src="https://tally.so/widgets/embed.js"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -61,6 +62,12 @@
       letter-spacing: -0.3px;
     }
 
+    .nav-wordmark .iq {
+      font-family: 'Lora', Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
+    }
+
     .nav-sub {
       font-size: 10px;
       color: #1a9e8f;
@@ -69,7 +76,6 @@
       margin-top: 1px;
     }
 
-    /* PAGE CONTENT */
     .page-content {
       margin-top: 68px;
       flex: 1;
@@ -112,7 +118,6 @@
       margin: 0 0 32px;
     }
 
-    /* SECTION LABELS */
     .section-label {
       font-size: 10px;
       letter-spacing: 0.1em;
@@ -122,7 +127,6 @@
       font-weight: 600;
     }
 
-    /* WHEN TO USE GRID */
     .use-case-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -156,7 +160,6 @@
       line-height: 1.55;
     }
 
-    /* NEEDS LIST */
     .needs-list {
       list-style: none;
       margin-bottom: 32px;
@@ -198,7 +201,6 @@
       margin-top: 1px;
     }
 
-    /* STEPS */
     .steps {
       display: flex;
       flex-direction: column;
@@ -241,7 +243,6 @@
     }
 
     .step:last-child .step-line { display: none; }
-
     .step-content { padding-top: 4px; }
 
     .step-title {
@@ -257,7 +258,6 @@
       line-height: 1.55;
     }
 
-    /* SEARCH ID CALLOUT */
     .search-id-callout {
       background: #f0faf9;
       border: 1px solid #d0e8e5;
@@ -274,17 +274,11 @@
       color: #1a2a2a;
       display: block;
       margin-bottom: 4px;
-      font-size: 13px;
     }
 
-    .search-id-callout a {
-      color: #1a9e8f;
-      text-decoration: none;
-    }
-
+    .search-id-callout a { color: #1a9e8f; text-decoration: none; }
     .search-id-callout a:hover { text-decoration: underline; }
 
-    /* FORM */
     .form-section-label {
       font-size: 11px;
       letter-spacing: 0.1em;
@@ -302,6 +296,12 @@
       box-shadow: 0 2px 12px rgba(0,0,0,0.05);
     }
 
+    .form-gradient-header {
+      height: 90px;
+      background: linear-gradient(to bottom, #1a2a2a 0%, #1a9e8f 100%);
+      width: 100%;
+    }
+
     iframe {
       display: block;
       width: 100%;
@@ -309,7 +309,6 @@
       border: none;
     }
 
-    /* FOOTER */
     footer {
       background: #ffffff;
       border-top: 1px solid #e0e6e5;
@@ -338,7 +337,7 @@
     <a href="https://hiresignaliq.ai" class="nav-logo">
       <div class="nav-monogram">hs</div>
       <div class="nav-logo-wrap">
-        <div class="nav-wordmark">HireSignalIQ®</div>
+        <div class="nav-wordmark">HireSignal<span class="iq">IQ</span>®</div>
         <div class="nav-sub">Built by Recruiters</div>
       </div>
     </a>
@@ -429,6 +428,7 @@
 
     <p class="form-section-label">Submit your update below</p>
     <div class="form-wrapper">
+      <div class="form-gradient-header"></div>
       <iframe data-tally-src="https://tally.so/embed/eq9AV0?alignLeft=1&hideTitle=1&dynamicHeight=1" loading="lazy" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0" title="HireSignalIQ — Update Search Criteria"></iframe>
     </div>
     <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s);}</script>
