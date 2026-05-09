@@ -11,8 +11,8 @@
 
     body {
       font-family: 'Helvetica Neue', Arial, sans-serif;
-      background: #1a2a2a;
-      color: #ffffff;
+      background: #f4f6f5;
+      color: #1a2a2a;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -20,17 +20,15 @@
 
     nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       z-index: 100;
-      background: #1a2a2a;
-      border-bottom: 1px solid rgba(26, 158, 143, 0.2);
+      background: #ffffff;
+      border-bottom: 1px solid #e0e6e5;
       padding: 0 40px;
       height: 68px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
     }
 
     .nav-logo {
@@ -54,16 +52,13 @@
       letter-spacing: -0.5px;
     }
 
+    .nav-logo-wrap { display: flex; flex-direction: column; }
+
     .nav-wordmark {
       font-size: 15px;
       font-weight: 700;
-      color: #ffffff;
+      color: #1a2a2a;
       letter-spacing: -0.3px;
-    }
-
-    .nav-wordmark span {
-      font-family: 'Georgia', serif;
-      font-style: italic;
     }
 
     .nav-sub {
@@ -74,15 +69,10 @@
       margin-top: 1px;
     }
 
-    .nav-logo-wrap {
-      display: flex;
-      flex-direction: column;
-    }
-
     .intake-header {
       margin-top: 68px;
-      background: linear-gradient(135deg, #1a2a2a 0%, #0f1e1e 100%);
-      border-bottom: 1px solid rgba(26, 158, 143, 0.2);
+      background: #ffffff;
+      border-bottom: 1px solid #e0e6e5;
       padding: 28px 40px 24px;
       display: flex;
       align-items: flex-start;
@@ -96,28 +86,29 @@
       text-transform: uppercase;
       color: #1a9e8f;
       margin-bottom: 6px;
+      font-weight: 600;
     }
 
     .header-title {
-      font-size: 22px;
+      font-size: 24px;
       font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 6px;
+      color: #1a2a2a;
+      margin-bottom: 8px;
       letter-spacing: -0.3px;
     }
 
     .header-sub {
       font-size: 14px;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.5;
-      max-width: 480px;
+      color: #4a6060;
+      line-height: 1.6;
+      max-width: 500px;
     }
 
     .header-badge {
-      background: rgba(26, 158, 143, 0.15);
-      border: 1px solid rgba(26, 158, 143, 0.3);
+      background: #f0faf9;
+      border: 1px solid #1a9e8f;
       border-radius: 8px;
-      padding: 12px 16px;
+      padding: 12px 18px;
       text-align: right;
       white-space: nowrap;
       flex-shrink: 0;
@@ -129,30 +120,31 @@
       letter-spacing: 0.08em;
       color: #1a9e8f;
       margin-bottom: 2px;
+      font-weight: 600;
     }
 
     .badge-value {
-      font-size: 13px;
-      font-weight: 600;
-      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
+      color: #1a2a2a;
     }
 
     .reassurance-bar {
-      background: rgba(26, 158, 143, 0.08);
-      border-bottom: 1px solid rgba(26, 158, 143, 0.15);
-      padding: 12px 40px;
+      background: #f0faf9;
+      border-bottom: 1px solid #d0e8e5;
+      padding: 11px 40px;
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 28px;
       flex-wrap: wrap;
     }
 
     .reassurance-item {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
       font-size: 12px;
-      color: rgba(255,255,255,0.6);
+      color: #4a6060;
     }
 
     .reassurance-dot {
@@ -166,46 +158,47 @@
     .form-container {
       flex: 1;
       width: 100%;
+      background: #f4f6f5;
+      padding: 32px 40px 48px;
+    }
+
+    .form-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid #e0e6e5;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
     }
 
     iframe {
       display: block;
       width: 100%;
-      min-height: calc(100vh - 68px - 89px - 45px);
+      min-height: 1400px;
       border: none;
     }
 
     footer {
-      background: #0f1e1e;
-      border-top: 1px solid rgba(26, 158, 143, 0.15);
+      background: #ffffff;
+      border-top: 1px solid #e0e6e5;
       padding: 16px 40px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
-    .footer-left {
-      font-size: 12px;
-      color: rgba(255,255,255,0.3);
-    }
-
-    .footer-right {
-      font-size: 12px;
-      color: rgba(255,255,255,0.3);
-    }
-
-    .footer-right a {
-      color: #1a9e8f;
-      text-decoration: none;
-    }
-
+    .footer-left { font-size: 12px; color: #8aa0a0; }
+    .footer-right { font-size: 12px; color: #8aa0a0; }
+    .footer-right a { color: #1a9e8f; text-decoration: none; }
     .footer-right a:hover { text-decoration: underline; }
 
     @media (max-width: 600px) {
       nav { padding: 0 20px; }
       .intake-header { padding: 20px; flex-direction: column; }
       .header-badge { text-align: left; }
-      .reassurance-bar { padding: 12px 20px; gap: 16px; }
+      .reassurance-bar { padding: 10px 20px; gap: 12px; }
+      .form-container { padding: 20px; }
       footer { padding: 16px 20px; flex-direction: column; gap: 8px; text-align: center; }
     }
   </style>
@@ -216,7 +209,7 @@
     <a href="https://hiresignaliq.ai" class="nav-logo">
       <div class="nav-monogram">hs</div>
       <div class="nav-logo-wrap">
-        <div class="nav-wordmark">HireSignalIQ<span>®</span></div>
+        <div class="nav-wordmark">HireSignalIQ®</div>
         <div class="nav-sub">Built by Recruiters</div>
       </div>
     </a>
@@ -242,7 +235,9 @@
   </div>
 
   <div class="form-container">
-    <iframe data-tally-src="https://tally.so/r/WOlore?transparentBackground=1" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="HireSignalIQ — Job Seeker Intake"></iframe>
+    <div class="form-inner">
+      <iframe data-tally-src="https://tally.so/r/WOlore" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="HireSignalIQ — Job Seeker Intake"></iframe>
+    </div>
   </div>
 
   <footer>
