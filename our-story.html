@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,9 +30,11 @@
     position: fixed;
     top: 0; left: 0;
     width: 100%;
-    height: 64px;
-    background: #1a2a2a;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    height: 80px;
+    background: rgba(245,242,237,0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(26,42,42,0.08);
     z-index: 99999;
     display: flex;
     align-items: center;
@@ -47,18 +50,18 @@
   }
 
   .os-nav-monogram {
-    width: 34px; height: 34px;
+    width: 42px; height: 42px;
     background: #1a9e8f;
     border-radius: 8px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 13px; font-weight: 600; color: #fff;
+    font-size: 16px; font-weight: 600; color: #fff;
     letter-spacing: -0.02em; flex-shrink: 0;
   }
 
   .os-nav-wordmark-wrap { display: flex; flex-direction: column; gap: 1px; }
 
   .os-nav-wordmark {
-    font-size: 15px; font-weight: 600; color: #fff;
+    font-size: 18px; font-weight: 600; color: #1a2a2a;
     letter-spacing: -0.02em; line-height: 1;
   }
 
@@ -69,16 +72,29 @@
   }
 
   .os-nav-links {
+    position: absolute; left: 50%; transform: translateX(-50%);
     display: flex; align-items: center; gap: 32px;
   }
 
   .os-nav-link {
-    font-size: 14px; color: rgba(255,255,255,0.6);
+    font-size: 16px; color: #158a7c;
     text-decoration: none; font-weight: 400;
     transition: color 0.2s;
   }
 
-  .os-nav-link:hover { color: #fff; }
+  .os-nav-link:hover { color: #1a2a2a; }
+  .os-nav-link.active { color: #1a2a2a; font-weight: 500; }
+
+  .os-nav-cta {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #1a9e8f; color: #fff;
+    font-size: 13px; font-weight: 500;
+    padding: 9px 20px; border-radius: 8px;
+    text-decoration: none; transition: background 0.2s;
+    font-family: 'DM Sans', Arial, sans-serif;
+  }
+
+  .os-nav-cta:hover { background: #158a7c; }
 
   .os-nav-hamburger {
     display: none; flex-direction: column; gap: 5px;
@@ -87,28 +103,33 @@
 
   .os-nav-hamburger span {
     display: block; width: 22px; height: 2px;
-    background: rgba(255,255,255,0.8); border-radius: 2px;
+    background: rgba(26,42,42,0.7); border-radius: 2px;
   }
 
   .os-mobile-menu {
     display: none;
     position: fixed;
-    top: 64px; left: 0; width: 100%;
-    background: #1a2a2a;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    top: 80px; left: 0; width: 100%;
+    background: rgba(245,242,237,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(26,42,42,0.08);
     padding: 16px 24px 24px;
     z-index: 99998;
-    flex-direction: column; gap: 16px;
+    flex-direction: column; gap: 4px;
   }
 
   .os-mobile-menu.open { display: flex; }
 
   .os-mobile-menu a {
-    font-size: 15px; color: rgba(255,255,255,0.7);
-    text-decoration: none; font-weight: 400; padding: 6px 0;
+    font-size: 15px; color: #158a7c;
+    text-decoration: none; font-weight: 400;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(26,42,42,0.06);
   }
 
-  .os-page { padding-top: 64px; }
+  .os-mobile-menu a:last-child { border-bottom: none; }
+
+  .os-page { padding-top: 80px; }
 
   .os-container {
     max-width: 800px;
@@ -189,7 +210,6 @@
     font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.5;
   }
 
-  /* PHILOSOPHY CARDS — matching differentiators style */
   .os-philosophy-section {
     background: #f7f7f5;
     border-radius: 16px;
@@ -234,7 +254,6 @@
 
   .os-phil-text strong { color: #1a2a2a; font-weight: 500; }
 
-  /* TABS */
   .os-tabs-wrap { margin-top: 40px; }
 
   .os-tab-buttons {
@@ -402,10 +421,17 @@
 
   .os-footer-note a { color: rgba(255,255,255,0.35); text-decoration: underline; }
 
+  @media (max-width: 860px) {
+    .os-nav { padding: 0 24px; height: 72px; }
+    .os-nav-links { display: none; }
+    .os-nav-cta { display: none; }
+    .os-nav-hamburger { display: flex; }
+    .os-mobile-menu { top: 72px; }
+    .os-page { padding-top: 72px; }
+  }
+
   @media (max-width: 640px) {
     .os-nav { padding: 0 20px; }
-    .os-nav-links { display: none; }
-    .os-nav-hamburger { display: flex; }
     .os-container { padding: 56px 24px 80px; }
     .os-h1 { font-size: 30px; }
     .os-h2 { font-size: 22px; }
@@ -430,10 +456,14 @@
     </div>
   </a>
   <div class="os-nav-links">
-    <a href="https://hiresignaliq.ai/#how-it-works" class="os-nav-link">How it works</a>
-    <a href="https://hiresignaliq.github.io/hiresignaliq-legal/our-story.html" class="os-nav-link">Our Story</a>
+    <a href="https://hiresignaliq.ai/recruiters" class="os-nav-link">For Recruiters</a>
+    <a href="https://hiresignaliq.ai/job-seekers" class="os-nav-link">For Job Seekers</a>
     <a href="https://hiresignaliq.ai/#pricing" class="os-nav-link">Pricing</a>
+    <a href="https://hiresignaliq.github.io/hiresignaliq-legal/resources.html" class="os-nav-link">Resources</a>
+    <a href="https://hiresignaliq.github.io/hiresignaliq-legal/our-story.html" class="os-nav-link active">Our Story</a>
+    <a href="https://hiresignaliq.github.io/hiresignaliq-legal/faq.html" class="os-nav-link">FAQ</a>
   </div>
+  <a href="https://hiresignaliq.ai/recruiters" class="os-nav-cta">Get started →</a>
   <button class="os-nav-hamburger" onclick="toggleMobileNav()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -441,9 +471,12 @@
 
 <!-- MOBILE MENU -->
 <div class="os-mobile-menu" id="osMobileNav">
-  <a href="https://hiresignaliq.ai/#how-it-works" onclick="closeMobileNav()">How it works</a>
-  <a href="https://hiresignaliq.github.io/hiresignaliq-legal/our-story.html" onclick="closeMobileNav()">Our Story</a>
+  <a href="https://hiresignaliq.ai/recruiters" onclick="closeMobileNav()">For Recruiters</a>
+  <a href="https://hiresignaliq.ai/job-seekers" onclick="closeMobileNav()">For Job Seekers</a>
   <a href="https://hiresignaliq.ai/#pricing" onclick="closeMobileNav()">Pricing</a>
+  <a href="https://hiresignaliq.github.io/hiresignaliq-legal/resources.html" onclick="closeMobileNav()">Resources</a>
+  <a href="https://hiresignaliq.github.io/hiresignaliq-legal/our-story.html" onclick="closeMobileNav()">Our Story</a>
+  <a href="https://hiresignaliq.github.io/hiresignaliq-legal/faq.html" onclick="closeMobileNav()">FAQ</a>
 </div>
 
 <div class="os-page">
@@ -567,158 +600,26 @@
 
   <hr class="os-divider">
 
-  <!-- SECTION 5: WHAT YOU GET -->
+  <!-- SECTION 5: WHAT YOU GET — SUMMARY -->
   <div class="os-section">
     <div class="os-eyebrow">
       <span class="os-eyebrow-dot"></span>
       What you get
       <span class="os-eyebrow-dot"></span>
     </div>
-    <h2 class="os-h2">Every section. Every output. No surprises.</h2>
+    <h2 class="os-h2">Complete intelligence. In your inbox. In minutes.</h2>
     <p class="os-p">
-      HireSignal<span style="font-family:'Lora',Georgia,serif;font-size:1.08em;font-weight:600;">IQ</span> delivers complete, structured intelligence — not a summary, not a snippet. Here is exactly what arrives in your inbox within minutes of submitting your inputs.
+      <strong>For recruiters:</strong> a fully structured search brief, screening and interview kit, and rewritten job description — delivered as branded Google Docs within minutes of submitting your inputs. No starting from scratch. No half-built templates. The output of a fully staffed Executive Search Firm, available the moment you open a new search.
     </p>
-
-    <div class="os-tabs-wrap">
-      <div class="os-tab-buttons">
-        <button class="os-tab-btn active" onclick="osTab('recruiter')">For Recruiters</button>
-        <button class="os-tab-btn" onclick="osTab('jobseeker')">For Job Seekers</button>
-      </div>
-
-      <div class="os-tab-panel active" id="os-tab-recruiter">
-        <p class="os-p" style="margin-bottom:24px;">The recruiter product delivers <strong>three Google Documents</strong> — a Search Brief, a Screening & Interview Kit, and a rewritten Job Description — plus a summary email with all document links and a unique Search ID for future updates.</p>
-
-        <div class="os-output-section open">
-          <div class="os-output-header" onclick="osToggle(this)">
-            <div class="os-output-header-left">
-              <span class="os-output-badge teal">Google Doc 1</span>
-              <span class="os-output-title">Search Brief</span>
-            </div>
-            <span class="os-output-chevron">⌄</span>
-          </div>
-          <div class="os-output-body">
-            <p class="os-output-intro">The Search Brief is the operational foundation of every search. It captures what the job description doesn't say, calibrates targets against real candidate examples, and gives a recruiter everything needed to source, pitch, and screen — without starting from scratch.</p>
-            <ul class="os-section-list">
-              <li><span class="os-li-marker"></span><div><div class="os-li-name">Inputs Summary</div><div class="os-li-desc">Confirms which inputs were provided and how the brief was calibrated — JD only, with candidate profiles, or with intake notes.</div></div></li>
-              <li><span class="os-li-marker"></span><div><div class="os-li-name">Role Summary</div><div class="os-li-desc">A concise synthesis of the role — what it is, what success looks like, and how it fits within the organization.</div></div></li>
-              <li><span class="os-li-marker"></span><div><div class="os-li-name">What the Hiring Manager Actually Wants</div><div class="os-li-desc">Extracted from intake notes — the unstated preferences, real priorities, and cultural signals that never make it into the job description.</div></div></li>
-              <li><span class="os-li-marker"></span><div><div class="os-li-name">Must-Have Competencies</div><div class="os-li-desc">The non-negotiable skills, experiences, and attributes. Used to qualify candidates at first contact.</div></div></li>
-              <li><span class="os-li-marker"></span><div><div class="os-li-name">Nice-to-Have Competencies</div><div class="os-li-desc">Differentiating factors that strengthen a candidate's fit without being disqualifying if absent.</div></div></li>
-              <li><span class="os-li-marker"></span><div><div class="os-li-name">Red Flags to Screen For</div><div class="os-li-desc">Specific warning signs — background gaps, role mismatches, experience patterns — that indicate a candidate is unlikely to succeed.</div></div></li>
-              <li><span class="os-li-marker"></span><div><div class="os-li-name">HireSignal Profile Analysis</div><div class="os-li-desc">When candidate profiles are submitted, the AI identifies patterns across their backgrounds and sharpens every output section accordingly.</div></div></li>
-              <li><span class="os-li-marker"></span><div><div class="os-li-name">Target Companies</div><div class="os-li-desc">A curated list of companies most likely to employ the right candidate — calibrated to role requirements and candidate profile patterns.</div></div></li>
-              <li><span class="os-li-marker"></span><div><div class="os-li-name">Adjacent Talent Pools</div><div class="os-li-desc">Non-obvious sourcing channels — adjacent industries, titles, company types — that expand the search without diluting quality.</div></div></li>
-              <li><span class="os-li-marker"></span><div><div class="os-li-name">Boolean Search Strings</div><div class="os-li-desc">Three ready-to-use Boolean strings — core title and skills, adjacent titles, and company-targeted — formatted for LinkedIn Recruiter.</div></div></li>
-              <li><span class="os-li-marker"></span><div><div class="os-li-name">LinkedIn Recruiter Search Recipe</div><div class="os-li-desc">Three fully specified LinkedIn Recruiter searches — title filters, seniority settings, company targets, keyword Booleans, and exclusions — ready to copy directly.</div></div></li>
-              <li><span class="os-li-marker"></span><div><div class="os-li-name">InMail & Outreach Intelligence</div><div class="os-li-desc">What to lead with, what will attract this candidate, what will repel them, a suggested opening line, and what not to say.</div></div></li>
-              <li><span class="os-li-marker"></span><div><div class="os-li-name">Compensation Intelligence</div><div class="os-li-desc">Market range for base, bonus, and equity where available — with positioning guidance for how to present the package.</div></div></li>
-              <li><span class="os-li-marker"></span><div><div class="os-li-name">Search Timeline Recommendation</div><div class="os-li-desc">A phased week-by-week plan from initial sourcing through offer — calibrated to the complexity of the search.</div></div></li>
-              <li><span class="os-li-marker"></span><div><div class="os-li-name">Suggested Next Steps</div><div class="os-li-desc">Specific, prioritized actions for the recruiter to take in the next 48–72 hours to move the search forward.</div></div></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="os-output-section">
-          <div class="os-output-header" onclick="osToggle(this)">
-            <div class="os-output-header-left">
-              <span class="os-output-badge blue">Google Doc 2</span>
-              <span class="os-output-title">Screening & Interview Kit</span>
-            </div>
-            <span class="os-output-chevron">⌄</span>
-          </div>
-          <div class="os-output-body">
-            <p class="os-output-intro">The Screening & Interview Kit gives any team member a consistent, role-specific framework for evaluating candidates. No more improvised screening calls.</p>
-            <ul class="os-section-list">
-              <li><span class="os-li-marker blue"></span><div><div class="os-li-name">Candidate Scorecard</div><div class="os-li-desc">A weighted scoring framework with 4–5 evaluation criteria, each assigned a percentage weight that reflects the true priorities of the role.</div></div></li>
-              <li><span class="os-li-marker blue"></span><div><div class="os-li-name">Role-Specific Screening Questions</div><div class="os-li-desc">5–7 questions calibrated to the specific role, level, and competencies — not generic interview questions.</div></div></li>
-              <li><span class="os-li-marker blue"></span><div><div class="os-li-name">Strong & Weak Answer Guides</div><div class="os-li-desc">For each question, a description of what a strong answer looks like and what a weak answer looks like.</div></div></li>
-              <li><span class="os-li-marker blue"></span><div><div class="os-li-name">3-Point Scoring Rubric</div><div class="os-li-desc">A simple Strong / Acceptable / Weak rubric for every question — makes post-interview debriefs faster and more objective.</div></div></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="os-output-section">
-          <div class="os-output-header" onclick="osToggle(this)">
-            <div class="os-output-header-left">
-              <span class="os-output-badge teal">Google Doc 3</span>
-              <span class="os-output-title">Rewritten Job Description</span>
-            </div>
-            <span class="os-output-chevron">⌄</span>
-          </div>
-          <div class="os-output-body">
-            <p class="os-output-intro">Produced when requested at intake. Choose internal format, confidential third-party format, or both.</p>
-            <ul class="os-section-list">
-              <li><span class="os-li-marker"></span><div><div class="os-li-name">Internal Version</div><div class="os-li-desc">An optimized job description for use on the company's own careers page — company name included, structured for clarity and candidate appeal.</div></div></li>
-              <li><span class="os-li-marker"></span><div><div class="os-li-name">Confidential Third-Party Version</div><div class="os-li-desc">A version that protects the client's identity — company name and identifying details removed — for recruiters posting on behalf of clients.</div></div></li>
-            </ul>
-            <p style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:12px;line-height:1.6;">Note: The JD Rewrite output is currently being enhanced to deliver more substantial, fully restructured job descriptions.</p>
-          </div>
-        </div>
-
-        <div class="os-output-section">
-          <div class="os-output-header" onclick="osToggle(this)">
-            <div class="os-output-header-left">
-              <span class="os-output-badge teal">Included</span>
-              <span class="os-output-title">Update Search Criteria</span>
-            </div>
-            <span class="os-output-chevron">⌄</span>
-          </div>
-          <div class="os-output-body">
-            <p class="os-output-intro">Included with every Recruiter plan at no extra cost. Simply submit your Search ID along with any new inputs — updated candidate profiles, revised intake notes, or changed requirements — and receive a fully updated brief within minutes.</p>
-            <ul class="os-section-list">
-              <li><span class="os-li-marker"></span><div><div class="os-li-name">Search ID Lookup</div><div class="os-li-desc">Submit your original Search ID with new candidate profiles, revised intake notes, or changed requirements. The system retrieves your original brief and combines it with the new information.</div></div></li>
-              <li><span class="os-li-marker"></span><div><div class="os-li-name">Fully Updated Brief</div><div class="os-li-desc">All three Google Documents are regenerated with the updated inputs incorporated — Boolean strings, target companies, screening questions, and outreach intelligence all refreshed.</div></div></li>
-              <li><span class="os-li-marker"></span><div><div class="os-li-name">Update Summary</div><div class="os-li-desc">A clear summary of what changed between the original brief and the updated version — so you know exactly what to act on.</div></div></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="os-tab-panel" id="os-tab-jobseeker">
-        <p class="os-p" style="margin-bottom:24px;">The job seeker product delivers <strong>one comprehensive Google Document</strong> — your Application Brief — plus a personal Google Sheets application tracker that grows with every brief you generate.</p>
-
-        <div class="os-output-section open">
-          <div class="os-output-header" onclick="osToggle(this)">
-            <div class="os-output-header-left">
-              <span class="os-output-badge purple">Google Doc</span>
-              <span class="os-output-title">Application Brief</span>
-            </div>
-            <span class="os-output-chevron">⌄</span>
-          </div>
-          <div class="os-output-body">
-            <p class="os-output-intro">The Application Brief replaces hours of manual tailoring with a complete, role-specific intelligence package. The moment you open it, the relief is immediate: this application is not a shot in the dark.</p>
-            <ul class="os-section-list">
-              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Role & Company Header</div><div class="os-li-desc">The title and company name at the top of the brief — your anchor for every section that follows.</div></div></li>
-              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">HireSignal Score</div><div class="os-li-desc">Your match percentage for this specific role — broken down into Skills, Experience, Industry, and Intangibles.</div></div></li>
-              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">ATS Keyword Analysis</div><div class="os-li-desc">Every keyword the ATS is scanning for — marked as covered, partially covered, or missing from your current resume.</div></div></li>
-              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Tailored Resume Bullets</div><div class="os-li-desc">Role-specific resume bullets written in your voice — calibrated to the language and priorities of this job posting.</div></div></li>
-              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Tailored Professional Summary</div><div class="os-li-desc">A rewritten professional summary that leads with what this hiring manager is looking for.</div></div></li>
-              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Cover Letter</div><div class="os-li-desc">A three-paragraph cover letter that sounds like you — specific to the role, credible in tone, and recruiter-readable.</div></div></li>
-              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">LinkedIn Optimization</div><div class="os-li-desc">Headline rewrites, About section guidance, skills to feature, and a connection strategy — all specific to this role.</div></div></li>
-              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Networking & Application Strategy</div><div class="os-li-desc">A targeted plan for who to reach out to, what to say, and how to approach the search strategically.</div></div></li>
-              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Application Recommendation</div><div class="os-li-desc">A direct recommendation — apply now, apply with these caveats, or reconsider — with specific positioning guidance.</div></div></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="os-output-section">
-          <div class="os-output-header" onclick="osToggle(this)">
-            <div class="os-output-header-left">
-              <span class="os-output-badge purple">Google Sheet</span>
-              <span class="os-output-title">Personal Application Tracker</span>
-            </div>
-            <span class="os-output-chevron">⌄</span>
-          </div>
-          <div class="os-output-body">
-            <p class="os-output-intro">Every brief you generate automatically populates your personal Application Tracker — a Google Sheet that lives in your own Google Drive and grows with your search.</p>
-            <ul class="os-section-list">
-              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Auto-Populated on Every Submission</div><div class="os-li-desc">Each brief adds a new row — role title, company, date, HireSignal Score, and a direct link to your Application Brief Google Doc.</div></div></li>
-              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Application Status Tracking</div><div class="os-li-desc">A dropdown for each role — Applied, Not Applied, Interviewing, Rejected — so you always know where each opportunity stands.</div></div></li>
-              <li><span class="os-li-marker purple"></span><div><div class="os-li-name">Your Data, Your Drive</div><div class="os-li-desc">The tracker lives in your personal Google Drive — not inside HireSignal<span style="font-family:'Lora',Georgia,serif;font-size:1.08em;font-weight:600;">IQ</span>. You own it completely.</div></div></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+    <p class="os-p">
+      <strong>For job seekers:</strong> a fully branded email brief with your HireSignal Score, ATS keyword analysis, cover letter, LinkedIn optimization, salary intelligence, search strategy, and application recommendation — plus a Tailored Resume and your personal Job Search Command Center, both waiting in your Google Drive.
+    </p>
+    <p class="os-p">
+      Every deliverable is yours to edit, share, and download. No locked PDFs. No proprietary dashboard. No data held hostage.
+    </p>
+    <div class="os-cta-buttons" style="margin-top:32px;">
+      <a href="https://hiresignaliq.ai/recruiters" class="os-btn-primary">See the Recruiter product →</a>
+      <a href="https://hiresignaliq.ai/job-seekers" class="os-btn-secondary">See the Job Seeker product →</a>
     </div>
   </div>
 
@@ -758,7 +659,7 @@
       <a href="https://buy.stripe.com/28E7sN51P5Z0cC8cnl6oo03" class="os-btn-primary">I'm a recruiter →</a>
       <a href="https://buy.stripe.com/9B63cx9i587845C9b96oo00" class="os-btn-secondary">I'm a job seeker →</a>
     </div>
-    <p class="os-footer-note">No contracts. Cancel anytime. Access continues to end of paid period.<br>Questions? <a href="mailto:hello@hiresignaliq.ai">hello@hiresignaliq.ai</a></p>
+    <p class="os-footer-note">No contracts. Cancel anytime. Access continues to end of paid period.<br>Questions? <a href="https://hiresignaliq.github.io/hiresignaliq-legal/contact.html">Contact us</a></p>
   </div>
 
 </div>
@@ -770,16 +671,6 @@
   }
   function closeMobileNav() {
     document.getElementById('osMobileNav').classList.remove('open');
-  }
-  function osTab(tab) {
-    document.querySelectorAll('.os-tab-btn').forEach(function(btn, i) {
-      btn.classList.toggle('active', (i === 0 && tab === 'recruiter') || (i === 1 && tab === 'jobseeker'));
-    });
-    document.getElementById('os-tab-recruiter').classList.toggle('active', tab === 'recruiter');
-    document.getElementById('os-tab-jobseeker').classList.toggle('active', tab === 'jobseeker');
-  }
-  function osToggle(header) {
-    header.parentElement.classList.toggle('open');
   }
 </script>
 
